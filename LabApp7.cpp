@@ -28,8 +28,8 @@ int main(int argc, char **argv)
 	button->setToolTip("Execute");
 	button->setFont(QFont("Courier"));
 	window->show();*/
-	Mainwindow window;
-	window.show();
-
+	Mainwindow* window=new Mainwindow;
+	window->show();
+	
 	return app.exec();
 }

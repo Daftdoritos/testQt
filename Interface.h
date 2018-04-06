@@ -4,7 +4,7 @@
 #include <QApplication>
 #include <QtWidgets>
 
-class Mainwindow : public QWidget // On hérite de QWidget (IMPORTANT)
+class Mainwindow : public QMainWindow // On hérite de QMainWindow (IMPORTANT)
 {
 public:
 	Mainwindow();
