@@ -31,5 +31,10 @@ int main(int argc, char **argv)
 	Mainwindow* window=new Mainwindow;
 	window->show();
 	
+	
+
+
+
+
 	return app.exec();
 }

@@ -10,7 +10,8 @@ public:
 	Mainwindow();
 
 private:
-	QPushButton * m_bouton;
+	QPushButton * m_bouton=new QPushButton;
+	QPushButton*quit = new QPushButton;
 };
 
 #endif
