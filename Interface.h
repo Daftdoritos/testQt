@@ -4,14 +4,15 @@
 #include <QApplication>
 #include <QtWidgets>
 
-class Mainwindow : public QMainWindow // On hérite de QMainWindow (IMPORTANT)
+
+class MainWindow : public QMainWindow
 {
 Q_OBJECT
 public:
-	Mainwindow();
-	void next();
-	void Quitter();
-	public slots:
+	MainWindow();
+	void Interface1();
+	void Interface2();
+public slots:
 	void transfer();
 private:
 	QPushButton * m_bouton=new QPushButton("Start", this);
@@ -29,4 +30,6 @@ private:
 	QPushButton *Large = new QPushButton;
 	QPushButton *XL = new QPushButton;
 };
+
+
 #endif
