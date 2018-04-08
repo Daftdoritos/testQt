@@ -28,7 +28,7 @@ void MainWindow::Interface1()
 	m_bouton->setCursor(Qt::PointingHandCursor);
 	quit->setCursor(Qt::PointingHandCursor);
 	quit->move(0, 50);
-	
+	//this->show();
 	
 	QObject::connect(quit, SIGNAL(clicked()), qApp, SLOT(quit()));
 	QObject::connect(m_bouton, SIGNAL(clicked()), this, SLOT(transfer()));
@@ -36,18 +36,40 @@ void MainWindow::Interface1()
 }
 void MainWindow::transfer(){
 	delete m_bouton;
+
 	Interface2();
 
 }
 
 void MainWindow::Interface2() {
-	QPixmap bkgnd("./spacepizza.png");
+	QPixmap bkgnd("./yellowfont.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;
 	palette.setBrush(QPalette::Background, bkgnd);
 	this->setPalette(palette);
-	checkbox = new QCheckBox("asd", this);
-	checkbox->show();
+
+	layout = new QGridLayout;
+	
+	peperonni= new QCheckBox("Peperonni", this);
+	poivrons = new QCheckBox("Poivrons", this);
+	champignons = new QCheckBox("Champignons", this);
+
+	layout->addWidget(peperonni, 0, 0);
+	layout->addWidget(poivrons, 0, 1);
+	layout->addWidget(champignons, 1, 0);
+
+
+	this->setLayout(layout);
+
+	
+
+
+	this->show();
+
+
+
+
+	//this->show();
 
 }
 

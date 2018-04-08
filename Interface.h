@@ -5,7 +5,7 @@
 #include <QtWidgets>
 
 
-class MainWindow : public QMainWindow
+class MainWindow : public QWidget
 {
 Q_OBJECT
 public:
@@ -17,8 +17,11 @@ public slots:
 private:
 	QPushButton * m_bouton=new QPushButton("Start", this);
 	QPushButton*quit = new QPushButton("Quit", this);
-	QCheckBox *checkbox;
-	
+	QCheckBox *peperonni;
+	QCheckBox *poivrons;
+	QCheckBox *champignons;
+	QGridLayout *layout;
+	QGridLayout *layout2;
 };
 
 
