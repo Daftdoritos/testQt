@@ -4,6 +4,7 @@ using namespace std;
 
 MainWindow::MainWindow() {
 	Interface1();
+
 	//Interface2();
 }
 
@@ -26,9 +27,9 @@ void MainWindow::Interface1()
 	quit->setFont(QFont("Comic Sans MS", 14));
 	m_bouton->setCursor(Qt::PointingHandCursor);
 	quit->setCursor(Qt::PointingHandCursor);
-	
 	quit->move(0, 50);
-	this->show();
+	
+	
 	QObject::connect(quit, SIGNAL(clicked()), qApp, SLOT(quit()));
 	QObject::connect(m_bouton, SIGNAL(clicked()), this, SLOT(transfer()));
 
@@ -45,16 +46,11 @@ void MainWindow::Interface2() {
 	QPalette palette;
 	palette.setBrush(QPalette::Background, bkgnd);
 	this->setPalette(palette);
-
-
-
-
-}
-
-Taillewindow::Taillewindow() :QMainWindow() {
-		
-	QPushButton*j = new QPushButton("hello",this);
+	checkbox = new QCheckBox("asd", this);
+	checkbox->show();
 
 }
+
+
 
 //void Interface1

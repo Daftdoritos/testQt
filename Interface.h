@@ -17,19 +17,11 @@ public slots:
 private:
 	QPushButton * m_bouton=new QPushButton("Start", this);
 	QPushButton*quit = new QPushButton("Quit", this);
+	QCheckBox *checkbox;
+	
 };
 
-class Taillewindow :public QMainWindow
-{
-public:
-	Taillewindow();
-	
-private:
-	QPushButton * Petite = new QPushButton;
-	QPushButton *Moyenne = new QPushButton;
-	QPushButton *Large = new QPushButton;
-	QPushButton *XL = new QPushButton;
-};
+
 
 
 #endif
