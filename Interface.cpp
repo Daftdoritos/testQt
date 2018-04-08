@@ -27,7 +27,7 @@ void MainWindow::Interface1()
 	quit->setFont(QFont("Comic Sans MS", 14));
 	m_bouton->setCursor(Qt::PointingHandCursor);
 	quit->setCursor(Qt::PointingHandCursor);
-	quit->move(0, 50);
+	quit->move(0, 380);
 	//this->show();
 	
 	QObject::connect(quit, SIGNAL(clicked()), qApp, SLOT(quit()));
@@ -48,28 +48,28 @@ void MainWindow::Interface2() {
 	palette.setBrush(QPalette::Background, bkgnd);
 	this->setPalette(palette);
 
-	layout = new QGridLayout;
+	layout = new QVBoxLayout;
 	
 	peperonni= new QCheckBox("Peperonni", this);
 	poivrons = new QCheckBox("Poivrons", this);
 	champignons = new QCheckBox("Champignons", this);
+	bacon = new QCheckBox("Bacon", this);
+	jambon = new QCheckBox("Jambon", this);
+	scroll = new QScrollArea(this);
+	groupbox = new QGroupBox("Accesoires", this);
 
-	layout->addWidget(peperonni, 0, 0);
-	layout->addWidget(poivrons, 0, 1);
-	layout->addWidget(champignons, 1, 0);
+	layout->addWidget(peperonni);
+	layout->addWidget(poivrons);
+	layout->addWidget(champignons);
+	layout->addWidget(bacon);
+	layout->addWidget(jambon);
 
-
-	this->setLayout(layout);
-
-	
-
-
+	groupbox->setLayout(layout);
+	//groupbox->move(0,0);
+	groupbox->show();
+	/*scroll->setWidget(peperonni);
+	scroll->show();*/
 	this->show();
-
-
-
-
-	//this->show();
 
 }
 

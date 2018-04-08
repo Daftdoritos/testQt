@@ -20,8 +20,11 @@ private:
 	QCheckBox *peperonni;
 	QCheckBox *poivrons;
 	QCheckBox *champignons;
-	QGridLayout *layout;
-	QGridLayout *layout2;
+	QCheckBox *bacon;
+	QCheckBox *jambon;
+	QVBoxLayout *layout;
+	QScrollArea *scroll;
+	QGroupBox *groupbox;
 };
 
 
