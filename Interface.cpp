@@ -1,4 +1,4 @@
-#include "Interface.h"
+#include "interface.h"
 #include "programme.h"
 #include "CommunicationFPGA.h"
 
@@ -11,7 +11,6 @@
 using namespace std;
 
 MainWindow::MainWindow() {
-	Interface1();
 
 	QShortcut * shortcut;
 
@@ -19,6 +18,11 @@ MainWindow::MainWindow() {
 		SLOT(on_up()));
 	shortcut = new QShortcut(QKeySequence(Qt::Key_Down), this,
 		SLOT(on_down()));
+
+	
+
+	Interface1();
+	
 
 	//Interface2();
 }
@@ -67,10 +71,15 @@ void MainWindow::Interface2() {
 	lay2 = new QVBoxLayout;
 	lay3 = new QVBoxLayout;
 	lay4 = new QVBoxLayout;
-	petite = new QRadioButton("Petite", this);
-	moyenne = new QRadioButton("Moyenne", this);
-	large = new QRadioButton("Large", this);
-	extralarge = new QRadioButton("Extra-Large", this);
+
+	for (int i = 0; i < TAILLE_SIZE; i++) {
+		tailles[i] = new QRadioButton(QTgrandeur[i], this);
+	}
+
+	//petite = new QRadioButton("Petite", this);
+	//moyenne = new QRadioButton("Moyenne", this);
+	//large = new QRadioButton("Large", this);
+	//extralarge = new QRadioButton("Extra-Large", this);
 
 	tomate = new QCheckBox("Tomates", this);
 	onion = new QCheckBox("Onions", this);
@@ -107,10 +116,14 @@ void MainWindow::Interface2() {
 	fromage = new QGroupBox("Fromage", this);
 	condiment = new QGroupBox("Condiments", this);
 
-	lay1->addWidget(petite, 0, 0);
-	lay1->addWidget(moyenne, 1, 0);
-	lay1->addWidget(large, 2, 0);
-	lay1->addWidget(extralarge, 3, 0);
+	for (int i = 0; i < TAILLE_SIZE; i++) {
+		lay1->addWidget(tailles[i], i, 0);
+	}
+
+	//lay1->addWidget(petite, 0, 0);
+	//lay1->addWidget(moyenne, 1, 0);
+	//lay1->addWidget(large, 2, 0);
+	//lay1->addWidget(extralarge, 3, 0);
 
 	grandeur->setLayout(lay1);
 

@@ -3,6 +3,9 @@
 #define DEF_PROGRAMME
 
 #include <string> 
+#include <QApplication>
+#include <QtWidgets>
+
 #include "Interface.h"
 #include "CommunicationFPGA.h"
 
@@ -40,9 +43,16 @@ public:
 	double prix1;
 	double prix_base;
 
+	const QString QTgrandeur[4] = { "petite","moyenne","grande","XL" };
+	const QString QTcondiments[10] = { "Tomates","Onions","Piments","Epinards","Champignons" ,"Jalapenos","Ananas","Olives","Ail", "Confirmer la selection" };
+	const QString QTviandes[10] = { "Steak","Pepperoni","Salami","Jambon","Prosciutto","Bacon","Saucisse","Poulet","Anchois","Confirmer la selections" };
+
 private:
 	//enum Registre { SW = 8, BTN = 9, LD = 10, AN0 = 11, AN1 = 12, AN2 = 13, AN3 = 14 };
 	enum Registre { BTN = 9, LD = 10, SWR = 1, BTNR = 0, AN0 = 11, AN1 = 12, AN2 = 13, AN3 = 14 };
+	string grandeur[4] = { "petite","moyenne","grande","XL" };
+	string condiments[10] = { "Tomates","Onions","Piments","Epinards","Champignons" ,"Jalapenos","Ananas","Olives","Ail", "Confirmer la selection" };
+	string viandes[10] = { "Steak","Pepperoni","Salami","Jambon","Prosciutto","Bacon","Saucisse","Poulet","Anchois","Confirmer la selections" };
 	int aa[4] = { 6,0,0,0 };
 	int ee[4] = { 0,6,0,0 };
 	int ii[4] = { 0,0,6,0 };
@@ -58,9 +68,7 @@ private:
 	string grandeurPizza;
 	int positionecran;
 	int positioncurseur;
-	string grandeur[4] = { "petite","moyenne","grande","XL" };
-	string condiments[10] = { "Tomates","Onions","Piments","Epinards","Champignons" ,"Jalapenos","Ananas","Olives","Ail", "Confirmer la selection" };
-	string viandes[10] = { "Steak","Pepperoni","Salami","Jambon","Prosciutto","Bacon","Saucisse","Poulet","Anchois","Confirmer la selections" };
+	
 	CommunicationFPGA fpga;
 	string fromages[8] = { "Cheddar","Parmesan","Fetta","MontereJack","Provolone","Chevre","Bleu","confirmer la selection" };
 };

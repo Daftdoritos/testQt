@@ -22,14 +22,29 @@ public:
 	void Interface2();
 	public slots:
 	void transfer();
-private:
-	QPushButton * m_bouton = new QPushButton("Start", this);
-	QPushButton*quit = new QPushButton("Quit", this);
 
-	QRadioButton *petite;
-	QRadioButton *moyenne;
-	QRadioButton *large;
-	QRadioButton *extralarge;
+private:
+
+	const QString QTgrandeur[4] = { "petite","moyenne","grande","XL" };
+	const QString QTcondiments[10] = { "Tomates","Onions","Piments","Epinards","Champignons" ,"Jalapenos","Ananas","Olives","Ail", "Confirmer la selection" };
+	const QString QTviandes[10] = { "Steak","Pepperoni","Salami","Jambon","Prosciutto","Bacon","Saucisse","Poulet","Anchois","Confirmer la selections" };
+	// interface7 pizza;
+
+	QPushButton * m_bouton = new QPushButton("Start", this);
+	QPushButton *quit = new QPushButton("Quit", this);
+
+	
+	QRadioButton *tailles[TAILLE_SIZE];
+	
+	QCheckBox viandes[TAILLE_VIANDES];
+	QCheckBox condiments[TAILLE_CONDIMENTS];
+	QCheckBox fromages[TAILLE_FROMAGE];
+
+
+	//QRadioButton *petite;
+	//QRadioButton *moyenne;
+	//QRadioButton *large;
+	//QRadioButton *extralarge;
 
 	QCheckBox *tomate;
 	QCheckBox *onion;

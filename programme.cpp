@@ -83,21 +83,21 @@ int interface7::detection_phoneme() {
 	}
 
 	if (Ncan0 >= aa[0] && Ncan1 >= aa[1] && Ncan2 >= aa[2] && Ncan3 >= aa[3]) {
-		fpga.ecrireRegistre(8, 0x10);
+		//fpga.ecrireRegistre(8, 0x10);
 		return 1;//a
 	}
 	if (Ncan0 >= ee[0] && Ncan1 >= ee[1] && Ncan2 >= ee[2] && Ncan3 >= ee[3]) {
-		fpga.ecrireRegistre(8, 0x01);
+		//fpga.ecrireRegistre(8, 0x01);
 		return 2;//e
 
 	}
 	if (Ncan0 >= ii[0] && Ncan1 >= ii[1] && Ncan2 >= ii[2] && Ncan3 >= ii[3]) {
-		fpga.ecrireRegistre(7, 0x10);
+		//fpga.ecrireRegistre(7, 0x10);
 		return 4;//i
 	}
 	if (Ncan0 >= er[0] && Ncan1 >= er[1] && Ncan2 >= er[2] && Ncan3 >= er[3]) {
-		fpga.ecrireRegistre(7, 0x01);
-		return 8;//er (ferme)
+		//fpga.ecrireRegistre(7, 0x01);
+	    	return 8;//er (ferme)
 	}
 	return 0;
 
