@@ -33,11 +33,17 @@
     <ClCompile Include="LabApp7.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="programme.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Interface.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
+    <ClInclude Include="programme.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="debug\moc_Interface.cpp">
@@ -54,11 +60,11 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="CommunicationFPGA.lib" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="CommunicationFPGA.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="CommunicationFPGA.lib" />
   </ItemGroup>
 </Project>

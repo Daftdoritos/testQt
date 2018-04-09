@@ -1,6 +1,8 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets>
-#include <Interface.h>
+#include "Interface.h"
+#include "programme.h"
+
 using namespace std;
 
 
