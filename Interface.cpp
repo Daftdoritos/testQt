@@ -100,6 +100,7 @@ void MainWindow::Interface2() {
 	saucisse = new QCheckBox("Saucisse", this);
 	poulet = new QCheckBox("Poulet", this);
 	anchoix = new QCheckBox("Anchoix", this);
+	
 
 	cheddar = new QCheckBox("Cheddar", this);
 	parmesan = new QCheckBox("Parmesan", this);
@@ -135,6 +136,7 @@ void MainWindow::Interface2() {
 	lay2->addWidget(jambon);
 	lay2->addWidget(poulet);
 	lay2->addWidget(anchoix);
+	lay2->addWidget(saucisse);
 	viande->setLayout(lay2);
 	viande->move(210, 0);
 
