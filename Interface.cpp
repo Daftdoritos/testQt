@@ -185,11 +185,18 @@ void MainWindow::moveFocus(int dy)
 		return;
 	layoutItem->widget()->setFocus();
 }
-
+void State() {
+	/*if(BOtailles[0]::checkedButton()){
+		qDebug() << "er detecte";
+	}
+	else {
+		qDebug() << "er detecte";
+	}*/
+}
 void MainWindow::settruefalse() {
 	for (int i = 0; i < TAILLE_SIZE; i++) {
 
-		QObject::connect(BOtailles[i], SIGNAL(clicked()), qApp, SLOT(quit()));
+		QObject::connect(BOtailles[i], SIGNAL(clicked()), qApp, SLOT(State()));
 	}
 
 

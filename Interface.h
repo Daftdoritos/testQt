@@ -95,6 +95,7 @@ public slots:
 	//void on_left();
 	//void on_right();
 	void moveFocus(int dy);
+	void State();
 	
 };
 
