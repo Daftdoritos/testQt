@@ -68,46 +68,55 @@ void MainWindow::Interface2() {
 	this->setPalette(palette);
 
 	lay1 = new QGridLayout;
-	lay2 = new QVBoxLayout;
-	lay3 = new QVBoxLayout;
-	lay4 = new QVBoxLayout;
+	lay2 = new QGridLayout;
+	lay3 = new QGridLayout;
+	lay4 = new QGridLayout;
 
 	for (int i = 0; i < TAILLE_SIZE; i++) {
-		tailles[i] = new QRadioButton(QTgrandeur[i], this);
+		BOtailles[i] = new QRadioButton(QTgrandeur[i], this);
 	}
 
+	for (int i = 0; i < TAILLE_VIANDES - 1; i++) {
+		BOviandes[i] = new QCheckBox(QTviandes[i], this);
+	}
+	for (int i = 0; i < TAILLE_CONDIMENTS - 1; i++) {
+		BOcondiments[i] = new QCheckBox(QTcondiments[i], this);
+	}
+	for (int i = 0; i < TAILLE_FROMAGE - 1; i++) {
+		BOfromages[i] = new QCheckBox(QTfromages[i], this);
+	}
 	//petite = new QRadioButton("Petite", this);
 	//moyenne = new QRadioButton("Moyenne", this);
 	//large = new QRadioButton("Large", this);
 	//extralarge = new QRadioButton("Extra-Large", this);
 
-	tomate = new QCheckBox("Tomates", this);
-	onion = new QCheckBox("Onions", this);
-	piment = new QCheckBox("Piments", this);
-	epinard = new QCheckBox("Epinards", this);
-	champignon = new QCheckBox("Champignon", this);
-	jalapenos = new QCheckBox("Jalapenos", this);
-	ananas = new QCheckBox("Ananas", this);
-	olive = new QCheckBox("Olives", this);
-	ail = new QCheckBox("Ail", this);
+	//tomate = new QCheckBox("Tomates", this);
+	//onion = new QCheckBox("Onions", this);
+	//piment = new QCheckBox("Piments", this);
+	//epinard = new QCheckBox("Epinards", this);
+	//champignon = new QCheckBox("Champignon", this);
+	//jalapenos = new QCheckBox("Jalapenos", this);
+	//ananas = new QCheckBox("Ananas", this);
+	//olive = new QCheckBox("Olives", this);
+	//ail = new QCheckBox("Ail", this);
 
-	steak = new QCheckBox("Steak", this);
-	pepperoni = new QCheckBox("Pepperoni", this);
-	salami = new QCheckBox("Salami", this);
-	prosciutto = new QCheckBox("Prosciutto", this);
-	bacon = new QCheckBox("Bacon", this);
-	jambon = new QCheckBox("Jambon", this);
-	saucisse = new QCheckBox("Saucisse", this);
-	poulet = new QCheckBox("Poulet", this);
-	anchoix = new QCheckBox("Anchoix", this);
+	//steak = new QCheckBox("Steak", this);
+	//pepperoni = new QCheckBox("Pepperoni", this);
+	//salami = new QCheckBox("Salami", this);
+	//prosciutto = new QCheckBox("Prosciutto", this);
+	//bacon = new QCheckBox("Bacon", this);
+	//jambon = new QCheckBox("Jambon", this);
+	//saucisse = new QCheckBox("Saucisse", this);
+	//poulet = new QCheckBox("Poulet", this);
+	//anchoix = new QCheckBox("Anchoix", this);
 
-	cheddar = new QCheckBox("Cheddar", this);
-	parmesan = new QCheckBox("Parmesan", this);
-	fetta = new QCheckBox("Fetta", this);
-	monterejack = new QCheckBox("MoontereJack", this);
-	provolone = new QCheckBox("Provolone", this);
-	chevre = new QCheckBox("Chevre", this);
-	bleu = new QCheckBox("Bleu", this);
+	//cheddar = new QCheckBox("Cheddar", this);
+	//parmesan = new QCheckBox("Parmesan", this);
+	//fetta = new QCheckBox("Fetta", this);
+	//monterejack = new QCheckBox("MoontereJack", this);
+	//provolone = new QCheckBox("Provolone", this);
+	//chevre = new QCheckBox("Chevre", this);
+	//bleu = new QCheckBox("Bleu", this);
 
 
 	scroll = new QScrollArea(this);
@@ -117,46 +126,43 @@ void MainWindow::Interface2() {
 	condiment = new QGroupBox("Condiments", this);
 
 	for (int i = 0; i < TAILLE_SIZE; i++) {
-		lay1->addWidget(tailles[i], i, 0);
+		lay1->addWidget(BOtailles[i], i, 0);
 	}
-
-	//lay1->addWidget(petite, 0, 0);
-	//lay1->addWidget(moyenne, 1, 0);
-	//lay1->addWidget(large, 2, 0);
-	//lay1->addWidget(extralarge, 3, 0);
+	for (int i = 0; i < TAILLE_VIANDES-1; i++) {
+		lay2->addWidget(BOviandes[i], i, 0);
+	}
+	for (int i = 0; i < TAILLE_CONDIMENTS - 1; i++) {
+		lay3->addWidget(BOcondiments[i], i, 0);
+	}
+	for (int i = 0; i < TAILLE_FROMAGE - 1; i++) {
+		lay4->addWidget(BOfromages[i], i, 0);
+	}
 
 	grandeur->setLayout(lay1);
 
-	lay2->addWidget(steak);
-	lay2->addWidget(pepperoni);
-	lay2->addWidget(salami);
-	lay2->addWidget(prosciutto);
-	lay2->addWidget(bacon);
-	lay2->addWidget(jambon);
-	lay2->addWidget(poulet);
-	lay2->addWidget(anchoix);
+
 	viande->setLayout(lay2);
 	viande->move(210, 0);
 
-	lay3->addWidget(tomate);
-	lay3->addWidget(onion);
-	lay3->addWidget(piment);
-	lay3->addWidget(epinard);
-	lay3->addWidget(champignon);
-	lay3->addWidget(jalapenos);
-	lay3->addWidget(ananas);
-	lay3->addWidget(olive);
-	lay3->addWidget(ail);
+	//lay3->addWidget(tomate);
+	//lay3->addWidget(onion);
+	//lay3->addWidget(piment);
+	//lay3->addWidget(epinard);
+	//lay3->addWidget(champignon);
+	//lay3->addWidget(jalapenos);
+	//lay3->addWidget(ananas);
+	//lay3->addWidget(olive);
+	//lay3->addWidget(ail);
 	condiment->setLayout(lay3);
 	condiment->move(110, 0);
 
-	lay4->addWidget(cheddar);
-	lay4->addWidget(parmesan);
-	lay4->addWidget(fetta);
-	lay4->addWidget(monterejack);
-	lay4->addWidget(provolone);
-	lay4->addWidget(chevre);
-	lay4->addWidget(bleu);
+	//lay4->addWidget(cheddar);
+	//lay4->addWidget(parmesan);
+	//lay4->addWidget(fetta);
+	//lay4->addWidget(monterejack);
+	//lay4->addWidget(provolone);
+	//lay4->addWidget(chevre);
+	//lay4->addWidget(bleu);
 
 	fromage->setLayout(lay4);
 	fromage->move(310, 0);

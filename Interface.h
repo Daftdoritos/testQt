@@ -25,20 +25,21 @@ public:
 
 private:
 
-	const QString QTgrandeur[4] = { "petite","moyenne","grande","XL" };
-	const QString QTcondiments[10] = { "Tomates","Onions","Piments","Epinards","Champignons" ,"Jalapenos","Ananas","Olives","Ail", "Confirmer la selection" };
-	const QString QTviandes[10] = { "Steak","Pepperoni","Salami","Jambon","Prosciutto","Bacon","Saucisse","Poulet","Anchois","Confirmer la selections" };
+	const QString QTgrandeur[4] = { "Petite","Moyenne","Grande","XL" };
+	const QString QTcondiments[9] = { "Tomates","Onions","Piments","Epinards","Champignons" ,"Jalapenos","Ananas","Olives","Ail" };
+	const QString QTviandes[9] = { "Steak","Pepperoni","Salami","Jambon","Prosciutto","Bacon","Saucisse","Poulet","Anchois" };
+	const QString QTfromages[7] = { "Cheddar","Parmesan","Fetta","MontereJack","Provolone","Chevre","Bleu"};
 	// interface7 pizza;
 
 	QPushButton * m_bouton = new QPushButton("Start", this);
 	QPushButton *quit = new QPushButton("Quit", this);
 
 	
-	QRadioButton *tailles[TAILLE_SIZE];
+	QRadioButton *BOtailles[TAILLE_SIZE];
 	
-	QCheckBox viandes[TAILLE_VIANDES];
-	QCheckBox condiments[TAILLE_CONDIMENTS];
-	QCheckBox fromages[TAILLE_FROMAGE];
+	QCheckBox *BOviandes[TAILLE_VIANDES-1];
+	QCheckBox *BOcondiments[TAILLE_CONDIMENTS-1];
+	QCheckBox *BOfromages[TAILLE_FROMAGE-1];
 
 
 	//QRadioButton *petite;
@@ -56,15 +57,15 @@ private:
 	QCheckBox *olive;
 	QCheckBox *ail;
 
-	QCheckBox *steak;
-	QCheckBox *pepperoni;
-	QCheckBox *salami;
-	QCheckBox *jambon;
-	QCheckBox *prosciutto;
-	QCheckBox *bacon;
-	QCheckBox *saucisse;
-	QCheckBox *poulet;
-	QCheckBox *anchoix;
+	//QCheckBox *steak;
+	//QCheckBox *pepperoni;
+	//QCheckBox *salami;
+	//QCheckBox *jambon;
+	//QCheckBox *prosciutto;
+	//QCheckBox *bacon;
+	//QCheckBox *saucisse;
+	//QCheckBox *poulet;
+	//QCheckBox *anchoix;
 
 	QCheckBox *cheddar;
 	QCheckBox *parmesan;
@@ -76,9 +77,9 @@ private:
 
 
 	QGridLayout *lay1;
-	QVBoxLayout *lay2;
-	QVBoxLayout *lay3;
-	QVBoxLayout *lay4;
+	QGridLayout *lay2;
+	QGridLayout *lay3;
+	QGridLayout *lay4;
 	QScrollArea *scroll;
 	QGroupBox *viande;
 	QGroupBox *condiment;
