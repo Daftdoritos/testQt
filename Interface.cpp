@@ -13,6 +13,13 @@ using namespace std;
 MainWindow::MainWindow() {
 	Interface1();
 
+	QShortcut * shortcut;
+
+	shortcut = new QShortcut(QKeySequence(Qt::Key_Up), this,
+		SLOT(on_up()));
+	shortcut = new QShortcut(QKeySequence(Qt::Key_Down), this,
+		SLOT(on_down()));
+
 	//Interface2();
 }
 
@@ -56,7 +63,7 @@ void MainWindow::Interface2() {
 	palette.setBrush(QPalette::Background, bkgnd);
 	this->setPalette(palette);
 
-	lay1 = new QVBoxLayout;
+	lay1 = new QGridLayout;
 	lay2 = new QVBoxLayout;
 	lay3 = new QVBoxLayout;
 	lay4 = new QVBoxLayout;
@@ -100,10 +107,10 @@ void MainWindow::Interface2() {
 	fromage = new QGroupBox("Fromage", this);
 	condiment = new QGroupBox("Condiments", this);
 
-	lay1->addWidget(petite);
-	lay1->addWidget(moyenne);
-	lay1->addWidget(large);
-	lay1->addWidget(extralarge);
+	lay1->addWidget(petite, 0, 0);
+	lay1->addWidget(moyenne, 1, 0);
+	lay1->addWidget(large, 2, 0);
+	lay1->addWidget(extralarge, 3, 0);
 
 	grandeur->setLayout(lay1);
 
@@ -148,6 +155,35 @@ void MainWindow::Interface2() {
 	fromage->show();
 	/*scroll->setWidget(peperonni);
 	scroll->show();*/
+	lay1->itemAtPosition(0,0)->widget()->setFocus();
+
+	this->setStyleSheet("QCheckBox::focus{ background: black; color: white;}");
+
 	this->show();
 
+}
+
+void MainWindow::on_up()
+{
+	moveFocus(-1);
+}
+
+void MainWindow::on_down()
+{
+	moveFocus(1);
+}
+
+void MainWindow::moveFocus(int dy)
+{
+	if (qApp->focusWidget() == 0)
+		return;
+	int idx = lay1->indexOf(qApp->focusWidget());
+	if (idx == -1)
+		return;
+	int r, c, rowSpan, colSpan;
+	lay1->getItemPosition(idx, &r, &c, &rowSpan, &colSpan);
+	QLayoutItem* layoutItem = lay1->itemAtPosition(r + dy, 0);
+	if (layoutItem == 0)
+		return;
+	layoutItem->widget()->setFocus();
 }

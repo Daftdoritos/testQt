@@ -60,7 +60,7 @@ private:
 	QCheckBox *bleu;
 
 
-	QVBoxLayout *lay1;
+	QGridLayout *lay1;
 	QVBoxLayout *lay2;
 	QVBoxLayout *lay3;
 	QVBoxLayout *lay4;
@@ -70,6 +70,12 @@ private:
 	QGroupBox *grandeur;
 	QGroupBox *fromage;
 
+public slots:
+	void on_up();
+	void on_down();
+	//void on_left();
+	//void on_right();
+	void moveFocus(int dy);
 };
 
 #endif
