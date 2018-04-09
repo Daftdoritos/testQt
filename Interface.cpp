@@ -134,7 +134,7 @@ void MainWindow::Interface2() {
 	this->setStyleSheet("QRadioButton::focus{ background: black; color: white;}");
 
 	this->show();
-
+	settruefalse();
 }
 
 void MainWindow::on_up()
@@ -184,4 +184,13 @@ void MainWindow::moveFocus(int dy)
 	if (layoutItem == 0)
 		return;
 	layoutItem->widget()->setFocus();
+}
+
+void MainWindow::settruefalse() {
+	for (int i = 0; i < TAILLE_SIZE; i++) {
+
+		QObject::connect(BOtailles[i], SIGNAL(clicked()), qApp, SLOT(quit()));
+	}
+
+
 }

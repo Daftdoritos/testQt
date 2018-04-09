@@ -23,6 +23,7 @@ public:
 	void Interface2();
 	public slots:
 	void transfer();
+	void settruefalse();
 
 private:
 
@@ -94,6 +95,7 @@ public slots:
 	//void on_left();
 	//void on_right();
 	void moveFocus(int dy);
+	
 };
 
 #endif
