@@ -65,6 +65,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="CommunicationFPGA.lib" />
+    <Library Include="CommunicationFPGA.lib">
+      <Filter>Source Files</Filter>
+    </Library>
   </ItemGroup>
 </Project>

@@ -26,10 +26,10 @@ private:
 	QPushButton * m_bouton = new QPushButton("Start", this);
 	QPushButton*quit = new QPushButton("Quit", this);
 
-	QCheckBox *petite;
-	QCheckBox *moyenne;
-	QCheckBox *large;
-	QCheckBox *extralarge;
+	QRadioButton *petite;
+	QRadioButton *moyenne;
+	QRadioButton *large;
+	QRadioButton *extralarge;
 
 	QCheckBox *tomate;
 	QCheckBox *onion;

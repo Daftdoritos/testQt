@@ -67,10 +67,10 @@ void MainWindow::Interface2() {
 	lay2 = new QVBoxLayout;
 	lay3 = new QVBoxLayout;
 	lay4 = new QVBoxLayout;
-	petite = new QCheckBox("Petite", this);
-	moyenne = new QCheckBox("Moyenne", this);
-	large = new QCheckBox("Large", this);
-	extralarge = new QCheckBox("Extra-Large", this);
+	petite = new QRadioButton("Petite", this);
+	moyenne = new QRadioButton("Moyenne", this);
+	large = new QRadioButton("Large", this);
+	extralarge = new QRadioButton("Extra-Large", this);
 
 	tomate = new QCheckBox("Tomates", this);
 	onion = new QCheckBox("Onions", this);
@@ -148,16 +148,17 @@ void MainWindow::Interface2() {
 	fromage->setLayout(lay4);
 	fromage->move(310, 0);
 
-	//groupbox->move(0,0);
+
 	grandeur->show();
 	viande->show();
 	condiment->show();
 	fromage->show();
-	/*scroll->setWidget(peperonni);
-	scroll->show();*/
+	
+	
 	lay1->itemAtPosition(0,0)->widget()->setFocus();
 
 	this->setStyleSheet("QCheckBox::focus{ background: black; color: white;}");
+	this->setStyleSheet("QRadioButton::focus{ background: black; color: white;}");
 
 	this->show();
 
