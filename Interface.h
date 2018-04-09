@@ -36,7 +36,6 @@ private:
 
 	
 	QRadioButton *BOtailles[TAILLE_SIZE];
-	
 	QCheckBox *BOviandes[TAILLE_VIANDES-1];
 	QCheckBox *BOcondiments[TAILLE_CONDIMENTS-1];
 	QCheckBox *BOfromages[TAILLE_FROMAGE-1];
@@ -92,6 +91,8 @@ public slots:
 	//void on_left();
 	//void on_right();
 	void moveFocus(int dy);
+	void settruefalse();
+	//void check();
 };
 
 #endif

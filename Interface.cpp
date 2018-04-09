@@ -178,7 +178,7 @@ void MainWindow::Interface2() {
 
 	this->setStyleSheet("QCheckBox::focus{ background: black; color: white;}");
 	this->setStyleSheet("QRadioButton::focus{ background: black; color: white;}");
-
+	settruefalse();
 	this->show();
 
 }
@@ -206,4 +206,13 @@ void MainWindow::moveFocus(int dy)
 	if (layoutItem == 0)
 		return;
 	layoutItem->widget()->setFocus();
+}
+
+void MainWindow::settruefalse() {
+	for (int i = 0; i < TAILLE_SIZE; i++) {
+
+		QObject::connect(BOtailles[i], SIGNAL(clicked()), qApp, SLOT(quit()));
+	}
+
+
 }
