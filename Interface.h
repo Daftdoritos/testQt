@@ -25,7 +25,7 @@ public:
 
 private:
 
-	const QString QTgrandeur[4] = { "petite","moyenne","grande","XL" };
+	const QString QTgrandeur[4] = { "Petite","Moyenne","Grande","XL" };
 	const QString QTcondiments[10] = { "Tomates","Onions","Piments","Epinards","Champignons" ,"Jalapenos","Ananas","Olives","Ail", "Confirmer la selection" };
 	const QString QTviandes[10] = { "Steak","Pepperoni","Salami","Jambon","Prosciutto","Bacon","Saucisse","Poulet","Anchois","Confirmer la selections" };
 	// interface7 pizza;
