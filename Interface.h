@@ -13,6 +13,7 @@
 using namespace std;
 
 
+
 class MainWindow : public QWidget
 {
 	Q_OBJECT
@@ -29,13 +30,14 @@ private:
 	const QString QTcondiments[9] = { "Tomates","Onions","Piments","Epinards","Champignons" ,"Jalapenos","Ananas","Olives","Ail" };
 	const QString QTviandes[9] = { "Steak","Pepperoni","Salami","Jambon","Prosciutto","Bacon","Saucisse","Poulet","Anchois" };
 	const QString QTfromages[7] = { "Cheddar","Parmesan","Fetta","MontereJack","Provolone","Chevre","Bleu"};
-	// interface7 pizza;
+	interface7 pizza;
 
 	QPushButton * m_bouton = new QPushButton("Start", this);
 	QPushButton *quit = new QPushButton("Quit", this);
 
 	
 	QRadioButton *BOtailles[TAILLE_SIZE];
+	
 	QCheckBox *BOviandes[TAILLE_VIANDES-1];
 	QCheckBox *BOcondiments[TAILLE_CONDIMENTS-1];
 	QCheckBox *BOfromages[TAILLE_FROMAGE-1];
@@ -88,11 +90,10 @@ private:
 public slots:
 	void on_up();
 	void on_down();
+	void on_tab();
 	//void on_left();
 	//void on_right();
 	void moveFocus(int dy);
-	void settruefalse();
-	//void check();
 };
 
 #endif

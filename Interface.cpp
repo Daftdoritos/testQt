@@ -9,6 +9,7 @@
 #include <string>
 #include <chrono>
 using namespace std;
+bool Ecran2 = false;
 
 MainWindow::MainWindow() {
 
@@ -18,13 +19,13 @@ MainWindow::MainWindow() {
 		SLOT(on_up()));
 	shortcut = new QShortcut(QKeySequence(Qt::Key_Down), this,
 		SLOT(on_down()));
+	shortcut = new QShortcut(QKeySequence(Qt::Key_Tab), this,
+		SLOT(on_tab()));
 
 	
 
 	Interface1();
-	
 
-	//Interface2();
 }
 
 void MainWindow::Interface1()
@@ -61,6 +62,7 @@ void MainWindow::transfer() {
 }
 
 void MainWindow::Interface2() {
+	Ecran2 = true;
 	QPixmap bkgnd("./yellowfont.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;
@@ -85,39 +87,6 @@ void MainWindow::Interface2() {
 	for (int i = 0; i < TAILLE_FROMAGE - 1; i++) {
 		BOfromages[i] = new QCheckBox(QTfromages[i], this);
 	}
-	//petite = new QRadioButton("Petite", this);
-	//moyenne = new QRadioButton("Moyenne", this);
-	//large = new QRadioButton("Large", this);
-	//extralarge = new QRadioButton("Extra-Large", this);
-
-	//tomate = new QCheckBox("Tomates", this);
-	//onion = new QCheckBox("Onions", this);
-	//piment = new QCheckBox("Piments", this);
-	//epinard = new QCheckBox("Epinards", this);
-	//champignon = new QCheckBox("Champignon", this);
-	//jalapenos = new QCheckBox("Jalapenos", this);
-	//ananas = new QCheckBox("Ananas", this);
-	//olive = new QCheckBox("Olives", this);
-	//ail = new QCheckBox("Ail", this);
-
-	//steak = new QCheckBox("Steak", this);
-	//pepperoni = new QCheckBox("Pepperoni", this);
-	//salami = new QCheckBox("Salami", this);
-	//prosciutto = new QCheckBox("Prosciutto", this);
-	//bacon = new QCheckBox("Bacon", this);
-	//jambon = new QCheckBox("Jambon", this);
-	//saucisse = new QCheckBox("Saucisse", this);
-	//poulet = new QCheckBox("Poulet", this);
-	//anchoix = new QCheckBox("Anchoix", this);
-
-	//cheddar = new QCheckBox("Cheddar", this);
-	//parmesan = new QCheckBox("Parmesan", this);
-	//fetta = new QCheckBox("Fetta", this);
-	//monterejack = new QCheckBox("MoontereJack", this);
-	//provolone = new QCheckBox("Provolone", this);
-	//chevre = new QCheckBox("Chevre", this);
-	//bleu = new QCheckBox("Bleu", this);
-
 
 	scroll = new QScrollArea(this);
 	viande = new QGroupBox("Viandes", this);
@@ -144,25 +113,10 @@ void MainWindow::Interface2() {
 	viande->setLayout(lay2);
 	viande->move(210, 0);
 
-	//lay3->addWidget(tomate);
-	//lay3->addWidget(onion);
-	//lay3->addWidget(piment);
-	//lay3->addWidget(epinard);
-	//lay3->addWidget(champignon);
-	//lay3->addWidget(jalapenos);
-	//lay3->addWidget(ananas);
-	//lay3->addWidget(olive);
-	//lay3->addWidget(ail);
 	condiment->setLayout(lay3);
 	condiment->move(110, 0);
 
-	//lay4->addWidget(cheddar);
-	//lay4->addWidget(parmesan);
-	//lay4->addWidget(fetta);
-	//lay4->addWidget(monterejack);
-	//lay4->addWidget(provolone);
-	//lay4->addWidget(chevre);
-	//lay4->addWidget(bleu);
+
 
 	fromage->setLayout(lay4);
 	fromage->move(310, 0);
@@ -178,7 +132,7 @@ void MainWindow::Interface2() {
 
 	this->setStyleSheet("QCheckBox::focus{ background: black; color: white;}");
 	this->setStyleSheet("QRadioButton::focus{ background: black; color: white;}");
-	settruefalse();
+
 	this->show();
 
 }
@@ -192,9 +146,33 @@ void MainWindow::on_down()
 {
 	moveFocus(1);
 }
+void MainWindow::on_tab()
+{
+	int actionphoneme=0;
+	actionphoneme = pizza.detection_phoneme();
+	if (actionphoneme ==0) {
+		qDebug() << "aucun phoneme detecte";
+	}
+	if (actionphoneme == 1) {
+		qDebug() << "aa detecte";
+	}
+	if (actionphoneme == 2) {
+		qDebug() << "ee detecte";
+	}
+	if (actionphoneme == 4) {
+		qDebug() << "ii detecte";
+	}
+	if (actionphoneme == 8) {
+		qDebug() << "er detecte";
+	}
+}
+
 
 void MainWindow::moveFocus(int dy)
 {
+	if (Ecran2 == false) {
+		return;
+	}
 	if (qApp->focusWidget() == 0)
 		return;
 	int idx = lay1->indexOf(qApp->focusWidget());
@@ -206,13 +184,4 @@ void MainWindow::moveFocus(int dy)
 	if (layoutItem == 0)
 		return;
 	layoutItem->widget()->setFocus();
-}
-
-void MainWindow::settruefalse() {
-	for (int i = 0; i < TAILLE_SIZE; i++) {
-
-		QObject::connect(BOtailles[i], SIGNAL(clicked()), qApp, SLOT(quit()));
-	}
-
-
 }
