@@ -36,6 +36,7 @@ public slots:
 
 
 private:
+	float prixtotal;
 
 	const QString QTgrandeur[4] = { "Petite","Moyenne","Grande","XL" };
 	const QString QTcondiments[9] = { "Tomates","Onions","Piments","Epinards","Champignons" ,"Jalapenos","Ananas","Olives","Ail" };
@@ -89,6 +90,10 @@ private:
 	bool choisisViande[TAILLE_CONDIMENTS-1] = { false,false, false, false, false, false, false, false, false };
 	bool choisisFromage[TAILLE_FROMAGE-1] = { false, false, false, false, false,false, false};
 	
+	double prixFromage[TAILLE_FROMAGE-1] = { 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50 };
+	double prixCondiment[TAILLE_CONDIMENTS-1] = { 0.50 , 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50};
+	double prixViande[TAILLE_CONDIMENTS-1] = { 0.50 , 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50 };
+	double prix_Grandeur[TAILLE_SIZE] = { 8.50,10.25,12.50,15.70 };
 };
 
 #endif

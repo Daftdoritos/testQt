@@ -216,11 +216,12 @@ void MainWindow::settruefalse() {
 }
 
 void MainWindow::check() {
+	prixtotal = 0;
 	for (int i = 0; i < TAILLE_SIZE; i++) {
 		if (BOtailles[i]->isChecked())
 		{
 			choisistaille[i] = true;
-			
+			prixtotal = prix_Grandeur[i] + prixtotal;
 		}
 		else
 		{
@@ -235,7 +236,7 @@ void MainWindow::check() {
 		if (BOcondiments[i]->isChecked())
 		{
 			choisiscondiments[i] = true;
-
+			prixtotal = prixCondiment[i] + prixtotal;
 		}
 		else
 		{
@@ -250,7 +251,7 @@ void MainWindow::check() {
 		if (BOviandes[i]->isChecked())
 		{
 			choisisViande[i] = true;
-
+			prixtotal = prixViande[i] + prixtotal;
 		}
 		else
 		{
@@ -265,7 +266,7 @@ void MainWindow::check() {
 		if (BOfromages[i]->isChecked())
 		{
 			choisisFromage[i] = true;
-
+			prixtotal = prixFromage[i] + prixtotal;
 		}
 		else
 		{
@@ -276,4 +277,6 @@ void MainWindow::check() {
 
 		qInfo() << choisisFromage[i];
 	}
+	
+
 }
