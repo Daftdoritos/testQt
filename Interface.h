@@ -21,7 +21,8 @@ public:
 	MainWindow();
 	void Interface1();
 	void Interface2();
-	QCheckBox *BOviandes[TAILLE_VIANDES - 1];
+	void images_pizza();
+	
 public slots:
 	void check();
 	void transfer();
@@ -51,9 +52,12 @@ private:
 	
 	QRadioButton *BOtailles[TAILLE_SIZE];
 	
-
+	QCheckBox *BOviandes[TAILLE_VIANDES-1];
 	QCheckBox *BOcondiments[TAILLE_CONDIMENTS-1];
 	QCheckBox *BOfromages[TAILLE_FROMAGE-1];
+
+	QImage *image[TAILLE_SIZE + TAILLE_CONDIMENTS-1 + TAILLE_FROMAGE-1 + TAILLE_FROMAGE - 1];
+	QLabel *plotImg[TAILLE_SIZE + TAILLE_CONDIMENTS - 1 + TAILLE_FROMAGE - 1 + TAILLE_FROMAGE - 1];
 
 
 	QCheckBox *tomate;

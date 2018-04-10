@@ -132,14 +132,15 @@ void MainWindow::Interface2() {
 	viande->show();
 	condiment->show();
 	fromage->show();
-	
+	images_pizza();
+
 	lay1->itemAtPosition(0,0)->widget()->setFocus();
 
 
 	//this->setStyleSheet("QRadioButton::focus{ background: black; color: white;}");
 	this->setStyleSheet("QCheckBox::focus{ background: black; color: white;}"
 					"QRadioButton::focus{ background: black; color: white;}");
-
+	
 
 	settruefalse();
 }
@@ -378,5 +379,33 @@ void MainWindow::check() {
 		//qInfo() << choisisFromage[i];
 	}
 	qInfo() << prixtotal;
+
+}
+
+void MainWindow::images_pizza() {
+	int pixtaille = 300, nmax;
+	//choisistaille[TAILLE_SIZE]
+	//for
+	nmax = TAILLE_SIZE + TAILLE_CONDIMENTS - 1 + TAILLE_FROMAGE - 1 + TAILLE_FROMAGE - 1;
+	for (int n = 0; n < 10; n++) {
+		if (n == 0){
+			image[n] = new QImage("./assets/pain.png");
+		}
+		else if (n == 1) {
+			image[n] = new QImage("./assets/fromages/cheddar.png");
+		}
+		else {
+			image[n] = new QImage("./assets/viande/peperonni.png");
+		}
+		//QImage image("./assets/pain.png");
+		QImage image2 = image[n]->scaled(pixtaille, pixtaille, Qt::KeepAspectRatio);
+		//QImage image2 = image.scaled(0, 0, Qt::KeepAspectRatio);
+		plotImg[n] = new QLabel(this);
+		//QLabel *plotImg = new QLabel(this);
+		plotImg[n]->setScaledContents(true);
+		plotImg[n]->setPixmap(QPixmap::fromImage(image2));
+		plotImg[n]->show();
+		plotImg[n]->move(550, 50);
+	}
 
 }

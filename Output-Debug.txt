@@ -1,0 +1,102 @@
+﻿'LabApp7.exe' (Win32): Loaded 'C:\Users\Carlos Torres\source\repos\testQt\debug\LabApp7.exe'. Symbols loaded.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\ntdll.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\kernel32.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\KernelBase.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\dmgr.dll'. Module was built without symbols.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\depp.dll'. Module was built without symbols.
+'LabApp7.exe' (Win32): Unloaded 'C:\Windows\System32\depp.dll'
+'LabApp7.exe' (Win32): Loaded 'C:\Qt\5.9.3\msvc2017_64\bin\Qt5Widgetsd.dll'. Symbols loaded.
+'LabApp7.exe' (Win32): Loaded 'C:\Qt\5.9.3\msvc2017_64\bin\Qt5Guid.dll'. Symbols loaded.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\user32.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\gdi32.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Qt\5.9.3\msvc2017_64\bin\Qt5Cored.dll'. Symbols loaded.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\ole32.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\win32u.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\gdi32full.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\combase.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\ws2_32.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\msvcp_win.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbase.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\rpcrt4.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\rpcrt4.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Unloaded 'C:\Windows\System32\rpcrt4.dll'
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\msvcp140d.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\shell32.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\bcryptprimitives.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\advapi32.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\msvcrt.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\sechost.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\sechost.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Unloaded 'C:\Windows\System32\sechost.dll'
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\vcruntime140d.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\cfgmgr32.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\SHCore.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\version.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\dpcomm.dll'. Module was built without symbols.
+'LabApp7.exe' (Win32): Unloaded 'C:\Windows\System32\dpcomm.dll'
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbased.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\windows.storage.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\mpr.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\WinSxS\amd64_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.9317_none_08e0939fa840d57b\msvcr90.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\shlwapi.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\kernel.appcore.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\powrprof.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\profapi.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\winmm.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\winmmbase.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\uxtheme.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\dwmapi.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\depp.dll'. Module was built without symbols.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\dpcomm.dll'. Module was built without symbols.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\dabs.dll'. Module was built without symbols.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\setupapi.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\imm32.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\cryptbase.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Qt\5.9.3\msvc2017_64\plugins\platforms\qwindowsd.dll'. Symbols loaded.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\oleaut32.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\WinTab32.dll'. Module was built without symbols.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\devobj.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\wintrust.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\msasn1.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\crypt32.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Qt\5.9.3\msvc2017_64\plugins\imageformats\qgifd.dll'. Symbols loaded.
+'LabApp7.exe' (Win32): Loaded 'C:\Qt\5.9.3\msvc2017_64\plugins\imageformats\qicnsd.dll'. Symbols loaded.
+'LabApp7.exe' (Win32): Loaded 'C:\Qt\5.9.3\msvc2017_64\plugins\imageformats\qicod.dll'. Symbols loaded.
+'LabApp7.exe' (Win32): Loaded 'C:\Qt\5.9.3\msvc2017_64\plugins\imageformats\qjpegd.dll'. Symbols loaded.
+'LabApp7.exe' (Win32): Loaded 'C:\Qt\5.9.3\msvc2017_64\plugins\imageformats\qsvgd.dll'. Symbols loaded.
+'LabApp7.exe' (Win32): Loaded 'C:\Qt\5.9.3\msvc2017_64\bin\Qt5Svgd.dll'. Symbols loaded.
+'LabApp7.exe' (Win32): Loaded 'C:\Qt\5.9.3\msvc2017_64\plugins\imageformats\qtgad.dll'. Symbols loaded.
+'LabApp7.exe' (Win32): Loaded 'C:\Qt\5.9.3\msvc2017_64\plugins\imageformats\qtiffd.dll'. Symbols loaded.
+'LabApp7.exe' (Win32): Loaded 'C:\Qt\5.9.3\msvc2017_64\plugins\imageformats\qwbmpd.dll'. Symbols loaded.
+'LabApp7.exe' (Win32): Loaded 'C:\Qt\5.9.3\msvc2017_64\plugins\imageformats\qwebpd.dll'. Symbols loaded.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\msctf.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\clbcatq.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\DataExchange.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\dcomp.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\d3d11.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\dxgi.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\twinapi.appcore.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\bcrypt.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\rmclient.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\DWrite.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\TextInputFramework.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\CoreUIComponents.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\CoreMessaging.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\ntmarta.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\WinTypes.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Loaded 'C:\Windows\System32\WinTypes.dll'. Cannot find or open the PDB file.
+'LabApp7.exe' (Win32): Unloaded 'C:\Windows\System32\WinTypes.dll'
+'LabApp7.exe' (Win32): Unloaded 'C:\Windows\System32\dxgi.dll'
+'LabApp7.exe' (Win32): Unloaded 'C:\Windows\System32\d3d11.dll'
+'LabApp7.exe' (Win32): Unloaded 'C:\Windows\System32\dcomp.dll'
+'LabApp7.exe' (Win32): Unloaded 'C:\Windows\System32\rmclient.dll'
+'LabApp7.exe' (Win32): Unloaded 'C:\Windows\System32\twinapi.appcore.dll'
+'LabApp7.exe' (Win32): Unloaded 'C:\Windows\System32\DataExchange.dll'
+The thread 0x5910 has exited with code 0 (0x0).
+The thread 0x317c has exited with code 0 (0x0).
+The thread 0xe44 has exited with code 0 (0x0).
+The thread 0x1aa0 has exited with code 0 (0x0).
+The thread 0x708 has exited with code 0 (0x0).
+The thread 0x5b60 has exited with code 0 (0x0).
+The thread 0x4e64 has exited with code 0 (0x0).
+The program '[25364] LabApp7.exe' has exited with code 0 (0x0).
