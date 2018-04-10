@@ -4,8 +4,8 @@
 
 #include <QApplication>
 #include <QtWidgets>
-#include <string>
 
+#include <string>
 
 #include "programme.h"
 #include "CommunicationFPGA.h"
@@ -84,9 +84,10 @@ private:
 	QGroupBox *grandeur;
 	QGroupBox *fromage;
 
-	bool choisis[TAILLE_CONDIMENTS] = { false,false, false, false, false, false, false, false, false, false };
-	bool choisisViande[TAILLE_CONDIMENTS] = { false,false, false, false, false, false, false, false, false, false };
-	bool choisisFromage[TAILLE_FROMAGE] = { false, false, false, false, false,false, false, false };
+	bool choisistaille[TAILLE_SIZE] = { false, false, false, false };
+	bool choisiscondiments[TAILLE_CONDIMENTS-1] = { false,false, false, false, false, false, false, false, false };
+	bool choisisViande[TAILLE_CONDIMENTS-1] = { false,false, false, false, false, false, false, false, false };
+	bool choisisFromage[TAILLE_FROMAGE-1] = { false, false, false, false, false,false, false};
 	
 };
 

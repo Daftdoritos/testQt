@@ -30,6 +30,7 @@ MainWindow::MainWindow() {
 
 void MainWindow::Interface1()
 {
+
 	this->setWindowTitle("pizza");
 	this->setFixedSize(885, 412);
 	//this->setStyleSheet("background-image: url(./Pimpmypizz.png)");
@@ -62,6 +63,7 @@ void MainWindow::transfer() {
 }
 
 void MainWindow::Interface2() {
+	
 	Ecran2 = true;
 	QPixmap bkgnd("./yellowfont.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
@@ -196,33 +198,82 @@ void MainWindow::moveFocus(int dy)
 void MainWindow::settruefalse() {
 	for (int i = 0; i < TAILLE_SIZE; i++) {
 
-		QObject::connect(BOtailles[i], SIGNAL(clicked()), qApp, SLOT(check()));
+		QObject::connect(BOtailles[i], SIGNAL(clicked()), this, SLOT(check()));
 	}
 	for (int i = 0; i <TAILLE_VIANDES - 1; i++) {
 
-		QObject::connect(BOviandes[i], SIGNAL(clicked()), qApp, SLOT(check()));
+		QObject::connect(BOviandes[i], SIGNAL(clicked()), this, SLOT(check()));
 	}
 	for (int i = 0; i <TAILLE_CONDIMENTS - 1; i++) {
 
-		QObject::connect(BOcondiments[i], SIGNAL(clicked()), qApp, SLOT(chech()));
+		QObject::connect(BOcondiments[i], SIGNAL(clicked()), this, SLOT(chech()));
 	}
 	for (int i = 0; i <TAILLE_FROMAGE - 1; i++) {
 
-		QObject::connect(BOfromages[i], SIGNAL(clicked()), qApp, SLOT(check()));
+		QObject::connect(BOfromages[i], SIGNAL(clicked()), this, SLOT(check()));
 	}
+	
 }
 
 void MainWindow::check() {
-	/*for (int i = 0; i < TAILLE_SIZE; i++) {
+	for (int i = 0; i < TAILLE_SIZE; i++) {
 		if (BOtailles[i]->isChecked())
 		{
+			choisistaille[i] = true;
 			
+		}
+		else
+		{
+			choisistaille[i] = false;
+			
+			//qApp->quit();
+		}
+	
+		qInfo()<< choisistaille[i];
+	}
+	for (int i = 0; i < TAILLE_CONDIMENTS - 1; i++) {
+		if (BOcondiments[i]->isChecked())
+		{
+			choisiscondiments[i] = true;
 
 		}
-		else 
-		
-	}*/
+		else
+		{
+			choisiscondiments[i] = false;
 
+			//qApp->quit();
+		}
 
+		qInfo() << choisiscondiments[i];
+	}
+	for (int i = 0; i <  TAILLE_CONDIMENTS - 1; i++) {
+		if (BOviandes[i]->isChecked())
+		{
+			choisisViande[i] = true;
 
+		}
+		else
+		{
+			choisisViande[i] = false;
+
+			//qApp->quit();
+		}
+
+		qInfo() << choisisViande[i];
+	}
+	for (int i = 0; i < TAILLE_FROMAGE - 1; i++) {
+		if (BOfromages[i]->isChecked())
+		{
+			choisisFromage[i] = true;
+
+		}
+		else
+		{
+			choisisFromage[i] = false;
+
+			//qApp->quit();
+		}
+
+		qInfo() << choisisFromage[i];
+	}
 }
