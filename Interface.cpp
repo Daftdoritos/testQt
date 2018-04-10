@@ -75,7 +75,7 @@ void MainWindow::Interface2() {
 	lay2 = new QGridLayout;
 	lay3 = new QGridLayout;
 	lay4 = new QGridLayout;
-
+	
 	for (int i = 0; i < TAILLE_SIZE; i++) {
 		BOtailles[i] = new QRadioButton(QTgrandeur[i], this);
 	}
@@ -90,7 +90,7 @@ void MainWindow::Interface2() {
 		BOfromages[i] = new QCheckBox(QTfromages[i], this);
 	}
 
-	scroll = new QScrollArea(this);
+	//scroll = new QScrollArea(this);
 	viande = new QGroupBox("Viandes", this);
 	grandeur = new QGroupBox("Grandeur", this);
 	fromage = new QGroupBox("Fromage", this);
@@ -129,11 +129,12 @@ void MainWindow::Interface2() {
 	condiment->show();
 	fromage->show();
 	
-	
-	lay1->itemAtPosition(0,0)->widget()->setFocus();
+	lay2->itemAtPosition(0,0)->widget()->setFocus();
 
-	this->setStyleSheet("QCheckBox::focus{ background: black; color: white;}");
-	this->setStyleSheet("QRadioButton::focus{ background: black; color: white;}");
+
+	//this->setStyleSheet("QRadioButton::focus{ background: black; color: white;}");
+	this->setStyleSheet("QCheckBox::focus{ background: black; color: white;}"
+					"QRadioButton::focus{ background: black; color: white;}");
 
 
 	settruefalse();
@@ -175,26 +176,53 @@ void MainWindow::moveFocus(int dy)
 	if (Ecran2 == false) {
 		return;
 	}
+
 	if (qApp->focusWidget() == 0)
 		return;
-	int idx = lay1->indexOf(qApp->focusWidget());
-	if (idx == -1)
+	int idx1 = lay1->indexOf(qApp->focusWidget());
+	int idx2 = lay2->indexOf(qApp->focusWidget());
+	int idx3 = lay3->indexOf(qApp->focusWidget());
+	int idx4 = lay4->indexOf(qApp->focusWidget());
+	if (idx1 == -1 && idx2 == -1 && idx4 == -1 && idx3 == -1)
 		return;
+	if (idx1 != -1) {
 	int r, c, rowSpan, colSpan;
-	lay1->getItemPosition(idx, &r, &c, &rowSpan, &colSpan);
+	lay1->getItemPosition(idx1, &r, &c, &rowSpan, &colSpan);
 	QLayoutItem* layoutItem = lay1->itemAtPosition(r + dy, 0);
 	if (layoutItem == 0)
 		return;
 	layoutItem->widget()->setFocus();
+	}
+	else if (idx2 != -1) {
+		int r, c, rowSpan, colSpan;
+		lay2->getItemPosition(idx2, &r, &c, &rowSpan, &colSpan);
+		QLayoutItem* layoutItem = lay2->itemAtPosition(r + dy, 0);
+		if (layoutItem == 0)
+			return;
+		layoutItem->widget()->setFocus();
+	}
+	else if (idx3 != -1) {
+		int r, c, rowSpan, colSpan;
+		lay3->getItemPosition(idx3, &r, &c, &rowSpan, &colSpan);
+		QLayoutItem* layoutItem = lay3->itemAtPosition(r + dy, 0);
+		if (layoutItem == 0)
+			return;
+		layoutItem->widget()->setFocus();
+	}
+	else if (idx4 != -1) {
+		int r, c, rowSpan, colSpan;
+		lay4->getItemPosition(idx4, &r, &c, &rowSpan, &colSpan);
+		QLayoutItem* layoutItem = lay4->itemAtPosition(r + dy, 0);
+		if (layoutItem == 0)
+			return;
+		layoutItem->widget()->setFocus();
+	}
+	
 }
 /*void State() {
-	if(BOtailles[0]::checkedButton()){
-		qDebug() << "er detecte";
-	}
-	else {
-		qDebug() << "er detecte";
-	}
+
 }*/
+
 void MainWindow::settruefalse() {
 	for (int i = 0; i < TAILLE_SIZE; i++) {
 
@@ -241,11 +269,8 @@ void MainWindow::check() {
 		else
 		{
 			choisiscondiments[i] = false;
-
-			//qApp->quit();
 		}
 
-		//qInfo() << choisiscondiments[i];
 	}
 	for (int i = 0; i <  TAILLE_CONDIMENTS - 1; i++) {
 		if (BOviandes[i]->isChecked())
