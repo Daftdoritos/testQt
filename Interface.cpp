@@ -230,7 +230,7 @@ void MainWindow::check() {
 			//qApp->quit();
 		}
 	
-		qInfo()<< choisistaille[i];
+		//qInfo()<< choisistaille[i];
 	}
 	for (int i = 0; i < TAILLE_CONDIMENTS - 1; i++) {
 		if (BOcondiments[i]->isChecked())
@@ -245,7 +245,7 @@ void MainWindow::check() {
 			//qApp->quit();
 		}
 
-		qInfo() << choisiscondiments[i];
+		//qInfo() << choisiscondiments[i];
 	}
 	for (int i = 0; i <  TAILLE_CONDIMENTS - 1; i++) {
 		if (BOviandes[i]->isChecked())
@@ -260,7 +260,7 @@ void MainWindow::check() {
 			//qApp->quit();
 		}
 
-		qInfo() << choisisViande[i];
+		//qInfo() << choisisViande[i];
 	}
 	for (int i = 0; i < TAILLE_FROMAGE - 1; i++) {
 		if (BOfromages[i]->isChecked())
@@ -275,8 +275,8 @@ void MainWindow::check() {
 			//qApp->quit();
 		}
 
-		qInfo() << choisisFromage[i];
+		//qInfo() << choisisFromage[i];
 	}
-	
+	qInfo() << prixtotal;
 
 }
