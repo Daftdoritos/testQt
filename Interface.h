@@ -54,11 +54,6 @@ private:
 	QCheckBox *BOfromages[TAILLE_FROMAGE-1];
 
 
-	//QRadioButton *petite;
-	//QRadioButton *moyenne;
-	//QRadioButton *large;
-	//QRadioButton *extralarge;
-
 	QCheckBox *tomate;
 	QCheckBox *onion;
 	QCheckBox *piment;
@@ -69,15 +64,6 @@ private:
 	QCheckBox *olive;
 	QCheckBox *ail;
 
-	//QCheckBox *steak;
-	//QCheckBox *pepperoni;
-	//QCheckBox *salami;
-	//QCheckBox *jambon;
-	//QCheckBox *prosciutto;
-	//QCheckBox *bacon;
-	//QCheckBox *saucisse;
-	//QCheckBox *poulet;
-	//QCheckBox *anchoix;
 
 	QCheckBox *cheddar;
 	QCheckBox *parmesan;
@@ -98,7 +84,9 @@ private:
 	QGroupBox *grandeur;
 	QGroupBox *fromage;
 
-
+	bool choisis[TAILLE_CONDIMENTS] = { false,false, false, false, false, false, false, false, false, false };
+	bool choisisViande[TAILLE_CONDIMENTS] = { false,false, false, false, false, false, false, false, false, false };
+	bool choisisFromage[TAILLE_FROMAGE] = { false, false, false, false, false,false, false, false };
 	
 };
 

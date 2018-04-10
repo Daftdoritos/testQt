@@ -214,7 +214,12 @@ void MainWindow::settruefalse() {
 
 void MainWindow::check() {
 	/*for (int i = 0; i < TAILLE_SIZE; i++) {
-		if (BOtailles[i].ischecked)
+		if (BOtailles[i]->isChecked())
+		{
+			
+
+		}
+		else 
 		
 	}*/
 
