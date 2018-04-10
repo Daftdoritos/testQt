@@ -133,7 +133,7 @@ void MainWindow::Interface2() {
 	this->setStyleSheet("QCheckBox::focus{ background: black; color: white;}");
 	this->setStyleSheet("QRadioButton::focus{ background: black; color: white;}");
 
-	this->show();
+
 	settruefalse();
 }
 
@@ -185,19 +185,39 @@ void MainWindow::moveFocus(int dy)
 		return;
 	layoutItem->widget()->setFocus();
 }
-void State() {
-	/*if(BOtailles[0]::checkedButton()){
+/*void State() {
+	if(BOtailles[0]::checkedButton()){
 		qDebug() << "er detecte";
 	}
 	else {
 		qDebug() << "er detecte";
-	}*/
-}
+	}
+}*/
 void MainWindow::settruefalse() {
 	for (int i = 0; i < TAILLE_SIZE; i++) {
 
-		QObject::connect(BOtailles[i], SIGNAL(clicked()), qApp, SLOT(State()));
+		QObject::connect(BOtailles[i], SIGNAL(clicked()), qApp, SLOT(check()));
 	}
+	for (int i = 0; i <TAILLE_VIANDES - 1; i++) {
+
+		QObject::connect(BOviandes[i], SIGNAL(clicked()), qApp, SLOT(check()));
+	}
+	for (int i = 0; i <TAILLE_CONDIMENTS - 1; i++) {
+
+		QObject::connect(BOcondiments[i], SIGNAL(clicked()), qApp, SLOT(chech()));
+	}
+	for (int i = 0; i <TAILLE_FROMAGE - 1; i++) {
+
+		QObject::connect(BOfromages[i], SIGNAL(clicked()), qApp, SLOT(check()));
+	}
+}
+
+void MainWindow::check() {
+	/*for (int i = 0; i < TAILLE_SIZE; i++) {
+		if (BOtailles[i].ischecked)
+		
+	}*/
+
 
 
 }

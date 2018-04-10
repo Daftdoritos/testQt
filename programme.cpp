@@ -521,4 +521,3 @@ int interface7::lireRegistre(int registre)
 
 
 
-//void Interface1

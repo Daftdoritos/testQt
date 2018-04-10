@@ -39,7 +39,7 @@ public:
 	string chercherFromage(int index);
 	void setgrandeurPizza(string grandeur);
 	string chercherGrandeurPizza();
-	double calcul_prix();
+	//double calcul_prix();
 	double prix1;
 	double prix_base;
 

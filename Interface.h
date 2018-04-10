@@ -21,9 +21,19 @@ public:
 	MainWindow();
 	void Interface1();
 	void Interface2();
-	public slots:
+
+public slots:
+	void check();
 	void transfer();
 	void settruefalse();
+	void on_up();
+	void on_down();
+	void on_tab();
+	//void on_left();
+	//void on_right();
+	void moveFocus(int dy);
+	//void State();
+
 
 private:
 
@@ -88,14 +98,7 @@ private:
 	QGroupBox *grandeur;
 	QGroupBox *fromage;
 
-public slots:
-	void on_up();
-	void on_down();
-	void on_tab();
-	//void on_left();
-	//void on_right();
-	void moveFocus(int dy);
-	void State();
+
 	
 };
 
