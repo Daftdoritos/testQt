@@ -21,8 +21,12 @@ MainWindow::MainWindow() {
 		SLOT(on_down()));
 	shortcut = new QShortcut(QKeySequence(Qt::Key_Tab), this,
 		SLOT(on_tab()));
-
-	
+	shortcut = new QShortcut(QKeySequence(Qt::Key_Return), this,
+		SLOT(on_enter()));
+	shortcut = new QShortcut(QKeySequence(Qt::Key_Left), this,
+		SLOT(on_left()));
+	shortcut = new QShortcut(QKeySequence(Qt::Key_Right), this,
+		SLOT(on_right()));
 
 	Interface1();
 
@@ -129,7 +133,7 @@ void MainWindow::Interface2() {
 	condiment->show();
 	fromage->show();
 	
-	lay2->itemAtPosition(0,0)->widget()->setFocus();
+	lay1->itemAtPosition(0,0)->widget()->setFocus();
 
 
 	//this->setStyleSheet("QRadioButton::focus{ background: black; color: white;}");
@@ -169,6 +173,77 @@ void MainWindow::on_tab()
 		qDebug() << "er detecte";
 	}
 }
+
+void MainWindow::on_enter()
+{
+	if (Ecran2 == false) {
+		return;
+	}
+
+	int idex1 = lay1->indexOf(qApp->focusWidget());
+	int idex2 = lay2->indexOf(qApp->focusWidget());
+	int idex3 = lay3->indexOf(qApp->focusWidget());
+	int idex4 = lay4->indexOf(qApp->focusWidget());
+	if (idex1 != -1) {
+		lay3->itemAtPosition(0, 0)->widget()->setFocus();
+	}
+	if (idex3 != -1) {
+		lay2->itemAtPosition(0, 0)->widget()->setFocus();
+	}
+	if (idex2 != -1) {
+		lay4->itemAtPosition(0, 0)->widget()->setFocus();
+	}
+	if (idex4 != -1) {
+		lay1->itemAtPosition(0, 0)->widget()->setFocus();
+	}
+}
+void MainWindow::on_right()
+{
+	if (Ecran2 == false) {
+		return;
+	}
+	int idex1 = lay1->indexOf(qApp->focusWidget());
+	int idex2 = lay2->indexOf(qApp->focusWidget());
+	int idex3 = lay3->indexOf(qApp->focusWidget());
+	int idex4 = lay4->indexOf(qApp->focusWidget());
+	if (idex1 != -1) {
+		lay3->itemAtPosition(0, 0)->widget()->setFocus();
+	}
+	if (idex3 != -1) {
+		lay2->itemAtPosition(0, 0)->widget()->setFocus();
+	}
+	if (idex2 != -1) {
+		lay4->itemAtPosition(0, 0)->widget()->setFocus();
+	}
+	if (idex4 != -1) {
+		lay1->itemAtPosition(0, 0)->widget()->setFocus();
+	}
+}
+void MainWindow::on_left()
+{
+	if (Ecran2 == false) {
+		return;
+	}
+	int idex1 = lay1->indexOf(qApp->focusWidget());
+	int idex2 = lay2->indexOf(qApp->focusWidget());
+	int idex3 = lay3->indexOf(qApp->focusWidget());
+	int idex4 = lay4->indexOf(qApp->focusWidget());
+	if (idex3 != -1) {
+		lay1->itemAtPosition(0, 0)->widget()->setFocus();
+	}
+	if (idex2 != -1) {
+		lay3->itemAtPosition(0, 0)->widget()->setFocus();
+	}
+	if (idex4 != -1) {
+		lay2->itemAtPosition(0, 0)->widget()->setFocus();
+	}
+	if (idex1 != -1) {
+		lay4->itemAtPosition(0, 0)->widget()->setFocus();
+	}
+}
+
+
+
 
 
 void MainWindow::moveFocus(int dy)

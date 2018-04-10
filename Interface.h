@@ -29,8 +29,9 @@ public slots:
 	void on_up();
 	void on_down();
 	void on_tab();
-	//void on_left();
-	//void on_right();
+	void on_enter();
+	void on_left();
+	void on_right();
 	void moveFocus(int dy);
 	//void State();
 
