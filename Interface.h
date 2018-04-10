@@ -46,11 +46,12 @@ private:
 	const QString QTfromages[7] = { "Cheddar","Parmesan","Fetta","MontereyJack","Provolone","Chevre","Bleu"};
 	
 	interface7 pizza;
+	QLabel * prixpizza = new QLabel("00.00", this);
+	QString s;
 
 	QPushButton * m_bouton = new QPushButton("Start", this);
 	QPushButton *quit = new QPushButton("Quit", this);
 
-	
 	QRadioButton *BOtailles[TAILLE_SIZE];
 	
 	QCheckBox *BOviandes[TAILLE_VIANDES-1];
@@ -59,27 +60,6 @@ private:
 
 	QImage *image[TAILLE_CONDIMENTS-1 + TAILLE_FROMAGE-1 + TAILLE_FROMAGE - 1];
 	QLabel *plotImg[TAILLE_CONDIMENTS - 1 + TAILLE_FROMAGE - 1 + TAILLE_FROMAGE - 1];
-
-
-	QCheckBox *tomate;
-	QCheckBox *onion;
-	QCheckBox *piment;
-	QCheckBox *epinard;
-	QCheckBox *champignon;
-	QCheckBox *jalapenos;
-	QCheckBox *ananas;
-	QCheckBox *olive;
-	QCheckBox *ail;
-
-
-	QCheckBox *cheddar;
-	QCheckBox *parmesan;
-	QCheckBox *fetta;
-	QCheckBox *monterejack;
-	QCheckBox *provolone;
-	QCheckBox *chevre;
-	QCheckBox *bleu;
-
 
 	QGridLayout *lay1;
 	QGridLayout *lay2;

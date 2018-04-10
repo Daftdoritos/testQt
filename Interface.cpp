@@ -69,6 +69,7 @@ void MainWindow::transfer() {
 void MainWindow::Interface2() {
 	
 	Ecran2 = true;
+	prixpizza->move(825, 0);
 	QPixmap bkgnd("./yellowfont.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;
@@ -379,6 +380,11 @@ void MainWindow::check() {
 		//qInfo() << choisisFromage[i];
 	}
 	qInfo() << prixtotal;
+	
+	s=QString::number(prixtotal, 'f', 2);
+	prixpizza->setText(s);
+	prixpizza->show();
+	prixpizza->move(825, 0);
 
 }
 
@@ -387,15 +393,15 @@ void MainWindow::images_pizza() {
 	//choisistaille[TAILLE_SIZE]
 	//for
 	nmax = TAILLE_SIZE + TAILLE_CONDIMENTS - 1 + TAILLE_FROMAGE - 1 + TAILLE_FROMAGE - 1;
-	for (int n = 0; n < 10; n++) {
+	for (int n = 0; n < 3; n++) {
 		if (n == 0){
 			image[n] = new QImage("./assets/pain.png");
 		}
 		else if (n == 1) {
-			image[n] = new QImage("./assets/fromages/cheddar.png");
+			image[n] = new QImage("./assets/fromage/Cheddar.png");
 		}
 		else {
-			image[n] = new QImage("./assets/viande/peperonni.png");
+			image[n] = new QImage("./assets/viande/Pepperonni.png");
 		}
 		//QImage image("./assets/pain.png");
 		QImage image2 = image[n]->scaled(pixtaille, pixtaille, Qt::KeepAspectRatio);
