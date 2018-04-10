@@ -43,7 +43,8 @@ private:
 	const QString QTgrandeur[4] = { "Petite","Moyenne","Grande","XL" };
 	const QString QTcondiments[9] = { "Tomates","Onions","Piments","Epinards","Champignons" ,"Jalapenos","Ananas","Olives","Ail" };
 	const QString QTviandes[9] = { "Steak","Pepperoni","Salami","Jambon","Prosciutto","Bacon","Saucisse","Poulet","Anchois" };
-	const QString QTfromages[7] = { "Cheddar","Parmesan","Fetta","MontereJack","Provolone","Chevre","Bleu"};
+	const QString QTfromages[7] = { "Cheddar","Parmesan","Fetta","MontereyJack","Provolone","Chevre","Bleu"};
+	
 	interface7 pizza;
 
 	QPushButton * m_bouton = new QPushButton("Start", this);
@@ -56,8 +57,8 @@ private:
 	QCheckBox *BOcondiments[TAILLE_CONDIMENTS-1];
 	QCheckBox *BOfromages[TAILLE_FROMAGE-1];
 
-	QImage *image[TAILLE_SIZE + TAILLE_CONDIMENTS-1 + TAILLE_FROMAGE-1 + TAILLE_FROMAGE - 1];
-	QLabel *plotImg[TAILLE_SIZE + TAILLE_CONDIMENTS - 1 + TAILLE_FROMAGE - 1 + TAILLE_FROMAGE - 1];
+	QImage *image[TAILLE_CONDIMENTS-1 + TAILLE_FROMAGE-1 + TAILLE_FROMAGE - 1];
+	QLabel *plotImg[TAILLE_CONDIMENTS - 1 + TAILLE_FROMAGE - 1 + TAILLE_FROMAGE - 1];
 
 
 	QCheckBox *tomate;
