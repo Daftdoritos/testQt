@@ -206,7 +206,7 @@ void MainWindow::settruefalse() {
 	}
 	for (int i = 0; i <TAILLE_CONDIMENTS - 1; i++) {
 
-		QObject::connect(BOcondiments[i], SIGNAL(clicked()), this, SLOT(chech()));
+		QObject::connect(BOcondiments[i], SIGNAL(clicked()), this, SLOT(check()));
 	}
 	for (int i = 0; i <TAILLE_FROMAGE - 1; i++) {
 
