@@ -46,7 +46,7 @@ private:
 	const QString QTfromages[7] = { "Cheddar","Parmesan","Fetta","MontereyJack","Provolone","Chevre","Bleu"};
 	
 	interface7 pizza;
-	QLabel * prixpizza = new QLabel("00.00", this);
+	QLabel * prixpizza = new QLabel("00.00$", this);
 	QString s;
 
 	QPushButton * m_bouton = new QPushButton("Start", this);

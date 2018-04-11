@@ -382,7 +382,7 @@ void MainWindow::check() {
 	qInfo() << prixtotal;
 	
 	s=QString::number(prixtotal, 'f', 2);
-	prixpizza->setText(s);
+	prixpizza->setText(s+"$");
 	prixpizza->show();
 	prixpizza->move(825, 0);
 
