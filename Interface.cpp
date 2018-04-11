@@ -73,6 +73,12 @@ void MainWindow::Interface2() {
 	reset->move(810, 380);
 	reset->show();
 
+	QPushButton*confirmer = new QPushButton("Confirmer la commande", this);
+	confirmer->setFont(QFont("Comic Sans MS", 14));
+	confirmer->setCursor(Qt::PointingHandCursor);
+	confirmer->move(500, 380);
+	confirmer->show();
+
 	Ecran2 = true;
 	prixpizza->move(825, 0);
 	
@@ -448,5 +454,11 @@ void MainWindow::Reset() {
 	}
 	
 	prixpizza->setText(QString::number(prixtotal, 'f', 2)+"$");
+
+}
+
+void MainWindow::Interface3(QPushButton& n) {
+
+
 
 }

@@ -25,6 +25,7 @@ public:
 	
 	
 public slots:
+	void Interface3(QPushButton& n);
 	void check();
 	void transfer();
 	void settruefalse();
