@@ -153,7 +153,6 @@ void MainWindow::Interface2() {
 	viande->show();
 	condiment->show();
 	fromage->show();
-	images_pizza();
 
 	lay1->itemAtPosition(0, 0)->widget()->setFocus();
 
@@ -166,9 +165,8 @@ void MainWindow::Interface2() {
 	settruefalse();
 
 	
-	QObject::connect(confirmer, SIGNAL(clicked()), this, SLOT(Interface3()));
+	QObject::connect(confirmer, SIGNAL(clicked()), this, SLOT(transfer1()));
 	QObject::connect(reset, SIGNAL(clicked()), this, SLOT(Reset()));
-	images_pizza();
 }
 
 void MainWindow::on_up()
@@ -417,10 +415,18 @@ void MainWindow::images_pizza() {
 	int pixtaille = 0, nmax;
 	int cf = 0, cv = 0, cc = 0;
 	bool choix = true;
+	nmax = 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1;
 
-	if (!firsttime)
-		for (int i = 0; i < (1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1); i++)
-			plotImg[i]->hide();
+	if (!firsttime) {
+		for (int n = 0; n < nmax; n++) {
+			delete plotImg[n];
+		}
+	} else {
+		for (int n = 0; n < (nmax); n++) {
+				image[n] = new QImage(path_image[n]);
+		}
+	}
+	
 
 
 	if (choisistaille[0]) {
@@ -436,16 +442,14 @@ void MainWindow::images_pizza() {
 		pixtaille = 300;
 	}
 
-	nmax = 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1;
+	
 
 	for (int n = 0; n < (nmax); n++) {
 		if (n == 0) {
-			image[n] = new QImage(path_image[n]);
 			choix = true;
 		}
 		else if (n < 8) {
 			choix = false;
-			image[n] = new QImage(path_image[n]);
 			if (choisisFromage[cf] == true) {
 				choix = true;
 			}
@@ -453,7 +457,6 @@ void MainWindow::images_pizza() {
 		}
 		else if (n < 17) {
 			choix = false;
-			image[n] = new QImage(path_image[n]);
 			if (choisisViande[cv] == true) {
 				choix = true;
 			}
@@ -461,7 +464,6 @@ void MainWindow::images_pizza() {
 		}
 		else {
 			choix = false;
-			image[n] = new QImage(path_image[n]);
 			if (choisiscondiments[cc] == true) {
 				choix = true;
 			}
@@ -523,8 +525,13 @@ void MainWindow::images_pizza() {
 
 void MainWindow::Reset() {
 	prixtotal = 0;
-	for (int i = 0; i < (1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1); i++)
-		plotImg[i]->hide();
+
+	if (!firsttime)
+		for (int n = 0; n < 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1; n++) {
+			delete image[n];
+			delete plotImg[n];
+		}
+	firsttime = true;
 
 	for (int i = 0; i < TAILLE_SIZE; i++) {
 
@@ -575,10 +582,15 @@ void MainWindow::Interface3() {
 	delete condiment;
 	delete viande;
 	delete fromage;
-	for (int n = 0; n < 3; n++) {
-		delete image[n];
-		delete plotImg[n];
-	}
+
+
+	if (!firsttime)
+		for (int n = 0; n < 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1; n++) {
+			delete image[n];
+			delete plotImg[n];
+		}
+	firsttime = true;
+
 	QPixmap bkgnd("./spacepizza.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;
@@ -595,16 +607,34 @@ void MainWindow::Interface3() {
 	remerciement->setFont(QFont("Comic Sans MS", 14));
 	remerciement->move(150, 175);
 	remerciement->show();
-	QObject::connect(NextOrder, SIGNAL(clicked()), this, SLOT(transfer2()));
 
+	QObject::connect(NextOrder, SIGNAL(clicked()), this, SLOT(transfer2()));
 }
 
+void MainWindow::transfer1() {
+
+	if (!firsttime) {
+		for (int n = 0; n < 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1; n++) {
+			plotImg[n]->hide();
+		}
+		for (int n = 0; n < 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1; n++) {
+			delete image[n];
+			delete plotImg[n];
+		}
+		firsttime = true;
+	}
+	Interface3();
+
+}
 void MainWindow::transfer2() {
 
 
 	delete quit;
 	delete remerciement;
 	delete NextOrder;
+
+	
+
 	Interface1();
 
 }
