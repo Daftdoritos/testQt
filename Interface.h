@@ -25,7 +25,7 @@ public:
 	
 	
 public slots:
-	void Interface3(QPushButton& n);
+	void Interface3();
 	void check();
 	void transfer();
 	void settruefalse();
@@ -55,6 +55,8 @@ private:
 
 	QPushButton * m_bouton = new QPushButton("Start", this);
 	QPushButton *quit = new QPushButton("Quit", this);
+	QPushButton*confirmer;
+	QPushButton *reset;
 	
 
 	QRadioButton *BOtailles[TAILLE_SIZE];
