@@ -28,9 +28,10 @@ public:
 	
 	
 public slots:
-	void Interface3(QPushButton& n);
+	void Interface3();
 	void check();
 	void transfer();
+	void transfer2();
 	void settruefalse();
 	void on_up();
 	void on_down();
@@ -54,11 +55,15 @@ private:
 	const QString QTfromages[7] = { "Cheddar","Parmesan","Fetta","MontereyJack","Provolone","Chevre","Bleu"};
 	
 	interface7 pizza;
-	QLabel * prixpizza = new QLabel("00.00$", this);
+	QLabel * prixpizza;
 	QString s;
+	QLabel *remerciement;
 
-	QPushButton * m_bouton = new QPushButton("Start", this);
-	QPushButton *quit = new QPushButton("Quit", this);
+	QPushButton * m_bouton;
+	QPushButton *quit;
+	QPushButton*confirmer;
+	QPushButton *reset;
+	QPushButton *NextOrder;
 	
 
 	QRadioButton *BOtailles[TAILLE_SIZE];
@@ -76,7 +81,7 @@ private:
 	QGridLayout *lay2;
 	QGridLayout *lay3;
 	QGridLayout *lay4;
-	QScrollArea *scroll;
+	
 	QGroupBox *viande;
 	QGroupBox *condiment;
 	QGroupBox *grandeur;

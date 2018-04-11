@@ -49,13 +49,16 @@ void MainWindow::Interface1()
 
 
 	// Construction des deux boutons Start Quit
-
+	m_bouton = new QPushButton("Start", this);
 	m_bouton->setFont(QFont("Comic Sans MS", 14));
+	quit = new QPushButton("Quit", this);
 	quit->setFont(QFont("Comic Sans MS", 14));
 	m_bouton->setCursor(Qt::PointingHandCursor);
 	quit->setCursor(Qt::PointingHandCursor);
+	m_bouton->show();
+	quit->show();
 	quit->move(0, 380);
-	//this->show();
+	
 
 	QObject::connect(quit, SIGNAL(clicked()), qApp, SLOT(quit()));
 	QObject::connect(m_bouton, SIGNAL(clicked()), this, SLOT(transfer()));
@@ -63,26 +66,29 @@ void MainWindow::Interface1()
 }
 void MainWindow::transfer() {
 	delete m_bouton;
-
+	
 	Interface2();
 
 }
 
 void MainWindow::Interface2() {
-	QPushButton *reset = new QPushButton("Reset", this);
+	reset = new QPushButton("Reset", this);
 	reset->setFont(QFont("Comic Sans MS", 14));
 	reset->setCursor(Qt::PointingHandCursor);
 	reset->move(810, 380);
 	reset->show();
 
-	QPushButton*confirmer = new QPushButton("Confirmer la commande", this);
+	confirmer = new QPushButton("Confirmer la commande", this);
 	confirmer->setFont(QFont("Comic Sans MS", 14));
 	confirmer->setCursor(Qt::PointingHandCursor);
 	confirmer->move(500, 380);
 	confirmer->show();
 
 	Ecran2 = true;
+
+	prixpizza = new QLabel("00.00$", this);
 	prixpizza->move(825, 0);
+	prixpizza->show();
 
 	QPixmap bkgnd("./yellowfont.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
@@ -109,7 +115,7 @@ void MainWindow::Interface2() {
 		BOfromages[i] = new QCheckBox(QTfromages[i], this);
 	}
 
-	//scroll = new QScrollArea(this);
+	
 	viande = new QGroupBox("Viandes", this);
 	grandeur = new QGroupBox("Grandeur", this);
 	fromage = new QGroupBox("Fromage", this);
@@ -158,6 +164,9 @@ void MainWindow::Interface2() {
 
 
 	settruefalse();
+
+	
+	QObject::connect(confirmer, SIGNAL(clicked()), this, SLOT(Interface3()));
 	QObject::connect(reset, SIGNAL(clicked()), this, SLOT(Reset()));
 	images_pizza();
 }
@@ -312,9 +321,7 @@ void MainWindow::moveFocus(int dy)
 	}
 
 }
-/*void State() {
 
-}*/
 
 void MainWindow::settruefalse() {
 	for (int i = 0; i < TAILLE_SIZE; i++) {
@@ -544,9 +551,61 @@ void MainWindow::Reset() {
 
 }
 
-void MainWindow::Interface3(QPushButton& n) {
+void MainWindow::Interface3() {
+	delete prixpizza;
+	delete confirmer;
+	delete reset;
+
+	for (int i = 0; i < TAILLE_SIZE; i++) {
+		delete BOtailles[i];
+	}
+
+	for (int i = 0; i < TAILLE_VIANDES - 1; i++) {
+		delete BOviandes[i];
+	}
+	for (int i = 0; i < TAILLE_CONDIMENTS - 1; i++) {
+		delete  BOcondiments[i];
+	}
+	for (int i = 0; i < TAILLE_FROMAGE - 1; i++) {
+		delete BOfromages[i];
+	}
 
 
+	delete grandeur;
+	delete condiment;
+	delete viande;
+	delete fromage;
+	for (int n = 0; n < 3; n++) {
+		delete image[n];
+		delete plotImg[n];
+	}
+	QPixmap bkgnd("./spacepizza.png");
+	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+	QPalette palette;
+	palette.setBrush(QPalette::Background, bkgnd);
+	this->setPalette(palette);
+
+	NextOrder = new QPushButton("Nouvelle Commmande", this);
+	NextOrder->setFont(QFont("Comic Sans MS", 14));
+	NextOrder->setCursor(Qt::PointingHandCursor);
+	NextOrder->move(500, 380);
+	NextOrder->show();
+
+	remerciement = new QLabel("Merci d'avoir fait affaire avec WestCoast Custom Pizza (ft. Xzibit)", this);
+	remerciement->setFont(QFont("Comic Sans MS", 14));
+	remerciement->move(150, 175);
+	remerciement->show();
+	QObject::connect(NextOrder, SIGNAL(clicked()), this, SLOT(transfer2()));
+
+}
+
+void MainWindow::transfer2() {
+
+
+	delete quit;
+	delete remerciement;
+	delete NextOrder;
+	Interface1();
 
 }
 
@@ -559,6 +618,7 @@ void MainWindow::batir_path() {
 		qInfo() << ("./assets/fromage/" + QTfromages[i] + ".png");
 	}
 
+	
 	for (int i = 0; i < TAILLE_VIANDES - 1; i++) {
 		path_image.push_back("./assets/viande/" + QTviandes[i] + ".png");
 		qInfo() << ("./assets/viande/" + QTviandes[i] + ".png");
