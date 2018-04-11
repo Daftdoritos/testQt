@@ -15,6 +15,8 @@ MainWindow::MainWindow() {
 
 	QShortcut * shortcut;
 
+	batir_path();
+
 	shortcut = new QShortcut(QKeySequence(Qt::Key_Up), this,
 		SLOT(on_up()));
 	shortcut = new QShortcut(QKeySequence(Qt::Key_Down), this,
@@ -460,5 +462,25 @@ void MainWindow::Reset() {
 void MainWindow::Interface3(QPushButton& n) {
 
 
+
+}
+
+void MainWindow::batir_path() {
+	path_image.push_back("./assets/pain.png");
+
+	for (int i = 0; i < TAILLE_FROMAGE - 1; i++) {
+		path_image.push_back("./assets/fromage/" + QTfromages[i] + ".png");
+		//qInfo() << ("./assets/fromage/" + QTfromages[i] + ".png");
+	}
+
+	for (int i = 0; i < TAILLE_VIANDES - 1; i++) {
+		path_image.push_back("./assets/viande/" + QTviandes[i] + ".png");
+		//qInfo() << ("./assets/viande/" + QTviandes[i] + ".png");
+	}
+
+	for (int i = 0; i < TAILLE_CONDIMENTS - 1; i++) {
+		path_image.push_back("./assets/condiment/" + QTcondiments[i] + ".png");
+		//qInfo() << ("./assets/condiment/" + QTcondiments[i] + ".png");
+	}
 
 }

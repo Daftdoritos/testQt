@@ -6,6 +6,7 @@
 #include <QtWidgets>
 
 #include <string>
+#include <vector>
 
 #include "programme.h"
 #include "CommunicationFPGA.h"
@@ -21,6 +22,7 @@ public:
 	MainWindow();
 	void Interface1();
 	void Interface2();
+	void batir_path();
 	void images_pizza();
 	
 	
@@ -63,8 +65,10 @@ private:
 	QCheckBox *BOcondiments[TAILLE_CONDIMENTS-1];
 	QCheckBox *BOfromages[TAILLE_FROMAGE-1];
 
-	QImage *image[TAILLE_CONDIMENTS-1 + TAILLE_FROMAGE-1 + TAILLE_FROMAGE - 1];
-	QLabel *plotImg[TAILLE_CONDIMENTS - 1 + TAILLE_FROMAGE - 1 + TAILLE_FROMAGE - 1];
+	std::vector<QString> path_image;
+
+	QImage *image[1 + TAILLE_CONDIMENTS-1 + TAILLE_FROMAGE-1 + TAILLE_FROMAGE - 1];
+	QLabel *plotImg[1 + TAILLE_CONDIMENTS - 1 + TAILLE_FROMAGE - 1 + TAILLE_FROMAGE - 1];
 
 	QGridLayout *lay1;
 	QGridLayout *lay2;
