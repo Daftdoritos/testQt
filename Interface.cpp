@@ -67,9 +67,15 @@ void MainWindow::transfer() {
 }
 
 void MainWindow::Interface2() {
-	
+	QPushButton *reset = new QPushButton("Reset", this);
+	reset->setFont(QFont("Comic Sans MS", 14));
+	reset->setCursor(Qt::PointingHandCursor);
+	reset->move(810, 380);
+	reset->show();
+
 	Ecran2 = true;
 	prixpizza->move(825, 0);
+	
 	QPixmap bkgnd("./yellowfont.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;
@@ -142,8 +148,9 @@ void MainWindow::Interface2() {
 	this->setStyleSheet("QCheckBox::focus{ background: black; color: white;}"
 					"QRadioButton::focus{ background: black; color: white;}");
 	
-
+	
 	settruefalse();
+	QObject::connect(reset, SIGNAL(clicked()), this, SLOT(Reset()));
 }
 
 void MainWindow::on_up()
@@ -321,6 +328,7 @@ void MainWindow::settruefalse() {
 }
 
 void MainWindow::check() {
+	
 	prixtotal = 0;
 	for (int i = 0; i < TAILLE_SIZE; i++) {
 		if (BOtailles[i]->isChecked())
@@ -413,5 +421,32 @@ void MainWindow::images_pizza() {
 		plotImg[n]->show();
 		plotImg[n]->move(550, 50);
 	}
+
+}
+
+void MainWindow::Reset() {
+	prixtotal = 0;
+	for (int i = 0; i < TAILLE_SIZE; i++) {
+		
+			BOtailles[i]->setAutoExclusive(false);
+			BOtailles[i]->setChecked(false);
+			BOtailles[i]->setAutoExclusive(true);
+			choisistaille[i] = false;
+			
+	}
+	for (int i = 0; i < TAILLE_CONDIMENTS - 1; i++) {
+			BOviandes[i]->setChecked(false);
+			choisiscondiments[i] = false;
+	}
+	for (int i = 0; i < TAILLE_CONDIMENTS - 1; i++) {
+			BOcondiments[i]->setChecked(false);
+			choisisViande[i] = false;
+	}
+	for (int i = 0; i < TAILLE_FROMAGE - 1; i++) {
+			BOfromages[i]->setChecked(false);
+			choisisFromage[i] = false;
+	}
+	
+	prixpizza->setText(QString::number(prixtotal, 'f', 2)+"$");
 
 }

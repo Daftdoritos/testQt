@@ -23,6 +23,7 @@ public:
 	void Interface2();
 	void images_pizza();
 	
+	
 public slots:
 	void check();
 	void transfer();
@@ -34,6 +35,8 @@ public slots:
 	void on_left();
 	void on_right();
 	void moveFocus(int dy);
+	void Reset();
+	
 	//void State();
 
 
@@ -51,6 +54,7 @@ private:
 
 	QPushButton * m_bouton = new QPushButton("Start", this);
 	QPushButton *quit = new QPushButton("Quit", this);
+	
 
 	QRadioButton *BOtailles[TAILLE_SIZE];
 	
