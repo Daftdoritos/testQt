@@ -477,4 +477,15 @@ void MainWindow::Interface3() {
 	palette.setBrush(QPalette::Background, bkgnd);
 	this->setPalette(palette);
 
+	NextOrder = new QPushButton("Nouvelle Commmande", this);
+	NextOrder->setFont(QFont("Comic Sans MS", 14));
+	NextOrder->setCursor(Qt::PointingHandCursor);
+	NextOrder->move(500, 380);
+	NextOrder->show();
+
+	remerciement = new QLabel("Merci d'avoir fait affaire avec WestCoast Custom Pizza (ft. Xzibit)", this);
+	remerciement->setFont(QFont("Comic Sans MS", 14));
+	remerciement->move(150, 175);
+	remerciement->show();
+	
 }

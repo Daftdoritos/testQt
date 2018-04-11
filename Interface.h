@@ -52,11 +52,13 @@ private:
 	interface7 pizza;
 	QLabel * prixpizza = new QLabel("00.00$", this);
 	QString s;
+	QLabel *remerciement;
 
 	QPushButton * m_bouton = new QPushButton("Start", this);
 	QPushButton *quit = new QPushButton("Quit", this);
 	QPushButton*confirmer;
 	QPushButton *reset;
+	QPushButton *NextOrder;
 	
 
 	QRadioButton *BOtailles[TAILLE_SIZE];
