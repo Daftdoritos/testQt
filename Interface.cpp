@@ -64,7 +64,7 @@ void MainWindow::Interface1()
 }
 void MainWindow::transfer() {
 	delete m_bouton;
-
+	
 	Interface2();
 
 }
@@ -83,8 +83,11 @@ void MainWindow::Interface2() {
 	confirmer->show();
 
 	Ecran2 = true;
+
+	prixpizza = new QLabel("00.00$", this);
 	prixpizza->move(825, 0);
-	
+	prixpizza->show();
+
 	QPixmap bkgnd("./yellowfont.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;
@@ -315,9 +318,7 @@ void MainWindow::moveFocus(int dy)
 	}
 	
 }
-/*void State() {
 
-}*/
 
 void MainWindow::settruefalse() {
 	for (int i = 0; i < TAILLE_SIZE; i++) {
@@ -467,6 +468,22 @@ void MainWindow::Interface3() {
 	delete prixpizza;
 	delete confirmer;
 	delete reset;
+
+	for (int i = 0; i < TAILLE_SIZE; i++) {
+		delete BOtailles[i];
+	}
+
+	for (int i = 0; i < TAILLE_VIANDES - 1; i++) {
+		delete BOviandes[i];
+	}
+	for (int i = 0; i < TAILLE_CONDIMENTS - 1; i++) {
+		delete  BOcondiments[i];
+	}
+	for (int i = 0; i < TAILLE_FROMAGE - 1; i++) {
+		delete BOfromages[i];
+	}
+
+
 	delete grandeur;
 	delete condiment;
 	delete viande;
@@ -475,7 +492,7 @@ void MainWindow::Interface3() {
 		delete image[n];
 		delete plotImg[n];
 	}
-	QPixmap bkgnd("./yellowfont.png");
+	QPixmap bkgnd("./spacepizza.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;
 	palette.setBrush(QPalette::Background, bkgnd);
@@ -496,17 +513,12 @@ void MainWindow::Interface3() {
 }
 
 void MainWindow::transfer2() {
+
+
 	delete quit;
 	delete remerciement;
 	delete NextOrder;
-	/*QPixmap bkgnd("./Pimpmypizz.png");
-	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
-	QPalette palette;
-	palette.setBrush(QPalette::Background, bkgnd);
-	this->setPalette(palette);*/
+
 	Interface1();
-
-
-
 
 }

@@ -51,7 +51,7 @@ private:
 	const QString QTfromages[7] = { "Cheddar","Parmesan","Fetta","MontereyJack","Provolone","Chevre","Bleu"};
 	
 	interface7 pizza;
-	QLabel * prixpizza = new QLabel("00.00$", this);
+	QLabel * prixpizza;
 	QString s;
 	QLabel *remerciement;
 
@@ -75,7 +75,7 @@ private:
 	QGridLayout *lay2;
 	QGridLayout *lay3;
 	QGridLayout *lay4;
-	QScrollArea *scroll;
+	
 	QGroupBox *viande;
 	QGroupBox *condiment;
 	QGroupBox *grandeur;
