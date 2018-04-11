@@ -28,6 +28,7 @@ public slots:
 	void Interface3();
 	void check();
 	void transfer();
+	void transfer2();
 	void settruefalse();
 	void on_up();
 	void on_down();
@@ -54,8 +55,8 @@ private:
 	QString s;
 	QLabel *remerciement;
 
-	QPushButton * m_bouton = new QPushButton("Start", this);
-	QPushButton *quit = new QPushButton("Quit", this);
+	QPushButton * m_bouton;
+	QPushButton *quit;
 	QPushButton*confirmer;
 	QPushButton *reset;
 	QPushButton *NextOrder;

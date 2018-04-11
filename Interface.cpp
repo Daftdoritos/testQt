@@ -47,11 +47,14 @@ void MainWindow::Interface1()
 
 
 	// Construction des deux boutons Start Quit
-
+	m_bouton = new QPushButton("Start", this);
 	m_bouton->setFont(QFont("Comic Sans MS", 14));
+	quit = new QPushButton("Quit", this);
 	quit->setFont(QFont("Comic Sans MS", 14));
 	m_bouton->setCursor(Qt::PointingHandCursor);
 	quit->setCursor(Qt::PointingHandCursor);
+	m_bouton->show();
+	quit->show();
 	quit->move(0, 380);
 	
 
@@ -461,6 +464,7 @@ void MainWindow::Reset() {
 }
 
 void MainWindow::Interface3() {
+	delete prixpizza;
 	delete confirmer;
 	delete reset;
 	delete grandeur;
@@ -471,7 +475,7 @@ void MainWindow::Interface3() {
 		delete image[n];
 		delete plotImg[n];
 	}
-	QPixmap bkgnd("./spacepizza.png");
+	QPixmap bkgnd("./yellowfont.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;
 	palette.setBrush(QPalette::Background, bkgnd);
@@ -487,5 +491,22 @@ void MainWindow::Interface3() {
 	remerciement->setFont(QFont("Comic Sans MS", 14));
 	remerciement->move(150, 175);
 	remerciement->show();
-	
+	QObject::connect(NextOrder, SIGNAL(clicked()), this, SLOT(transfer2()));
+
+}
+
+void MainWindow::transfer2() {
+	delete quit;
+	delete remerciement;
+	delete NextOrder;
+	/*QPixmap bkgnd("./Pimpmypizz.png");
+	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+	QPalette palette;
+	palette.setBrush(QPalette::Background, bkgnd);
+	this->setPalette(palette);*/
+	Interface1();
+
+
+
+
 }
