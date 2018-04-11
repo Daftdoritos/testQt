@@ -83,7 +83,7 @@ void MainWindow::Interface2() {
 
 	Ecran2 = true;
 	prixpizza->move(825, 0);
-	
+
 	QPixmap bkgnd("./yellowfont.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;
@@ -94,7 +94,7 @@ void MainWindow::Interface2() {
 	lay2 = new QGridLayout;
 	lay3 = new QGridLayout;
 	lay4 = new QGridLayout;
-	
+
 	for (int i = 0; i < TAILLE_SIZE; i++) {
 		BOtailles[i] = new QRadioButton(QTgrandeur[i], this);
 	}
@@ -118,7 +118,7 @@ void MainWindow::Interface2() {
 	for (int i = 0; i < TAILLE_SIZE; i++) {
 		lay1->addWidget(BOtailles[i], i, 0);
 	}
-	for (int i = 0; i < TAILLE_VIANDES-1; i++) {
+	for (int i = 0; i < TAILLE_VIANDES - 1; i++) {
 		lay2->addWidget(BOviandes[i], i, 0);
 	}
 	for (int i = 0; i < TAILLE_CONDIMENTS - 1; i++) {
@@ -149,16 +149,17 @@ void MainWindow::Interface2() {
 	fromage->show();
 	images_pizza();
 
-	lay1->itemAtPosition(0,0)->widget()->setFocus();
+	lay1->itemAtPosition(0, 0)->widget()->setFocus();
 
 
 	//this->setStyleSheet("QRadioButton::focus{ background: black; color: white;}");
 	this->setStyleSheet("QCheckBox::focus{ background: black; color: white;}"
-					"QRadioButton::focus{ background: black; color: white;}");
-	
-	
+		"QRadioButton::focus{ background: black; color: white;}");
+
+
 	settruefalse();
 	QObject::connect(reset, SIGNAL(clicked()), this, SLOT(Reset()));
+	images_pizza();
 }
 
 void MainWindow::on_up()
@@ -172,9 +173,9 @@ void MainWindow::on_down()
 }
 void MainWindow::on_tab()
 {
-	int actionphoneme=0;
+	int actionphoneme = 0;
 	actionphoneme = pizza.detection_phoneme();
-	if (actionphoneme ==0) {
+	if (actionphoneme == 0) {
 		qDebug() << "aucun phoneme detecte";
 	}
 	if (actionphoneme == 1) {
@@ -278,12 +279,12 @@ void MainWindow::moveFocus(int dy)
 	if (idx1 == -1 && idx2 == -1 && idx4 == -1 && idx3 == -1)
 		return;
 	if (idx1 != -1) {
-	int r, c, rowSpan, colSpan;
-	lay1->getItemPosition(idx1, &r, &c, &rowSpan, &colSpan);
-	QLayoutItem* layoutItem = lay1->itemAtPosition(r + dy, 0);
-	if (layoutItem == 0)
-		return;
-	layoutItem->widget()->setFocus();
+		int r, c, rowSpan, colSpan;
+		lay1->getItemPosition(idx1, &r, &c, &rowSpan, &colSpan);
+		QLayoutItem* layoutItem = lay1->itemAtPosition(r + dy, 0);
+		if (layoutItem == 0)
+			return;
+		layoutItem->widget()->setFocus();
 	}
 	else if (idx2 != -1) {
 		int r, c, rowSpan, colSpan;
@@ -309,7 +310,7 @@ void MainWindow::moveFocus(int dy)
 			return;
 		layoutItem->widget()->setFocus();
 	}
-	
+
 }
 /*void State() {
 
@@ -332,11 +333,11 @@ void MainWindow::settruefalse() {
 
 		QObject::connect(BOfromages[i], SIGNAL(clicked()), this, SLOT(check()));
 	}
-	
+
 }
 
 void MainWindow::check() {
-	
+
 	prixtotal = 0;
 	for (int i = 0; i < TAILLE_SIZE; i++) {
 		if (BOtailles[i]->isChecked())
@@ -347,10 +348,10 @@ void MainWindow::check() {
 		else
 		{
 			choisistaille[i] = false;
-			
+
 			//qApp->quit();
 		}
-	
+
 		//qInfo()<< choisistaille[i];
 	}
 	for (int i = 0; i < TAILLE_CONDIMENTS - 1; i++) {
@@ -365,7 +366,7 @@ void MainWindow::check() {
 		}
 
 	}
-	for (int i = 0; i <  TAILLE_CONDIMENTS - 1; i++) {
+	for (int i = 0; i < TAILLE_CONDIMENTS - 1; i++) {
 		if (BOviandes[i]->isChecked())
 		{
 			choisisViande[i] = true;
@@ -396,66 +397,150 @@ void MainWindow::check() {
 		//qInfo() << choisisFromage[i];
 	}
 	qInfo() << prixtotal;
-	
-	s=QString::number(prixtotal, 'f', 2);
-	prixpizza->setText(s+"$");
+
+	s = QString::number(prixtotal, 'f', 2);
+	prixpizza->setText(s + "$");
 	prixpizza->show();
 	prixpizza->move(825, 0);
+	images_pizza();
 
 }
 
 void MainWindow::images_pizza() {
-	int pixtaille = 300, nmax;
-	//choisistaille[TAILLE_SIZE]
-	//for
-	nmax = TAILLE_SIZE + TAILLE_CONDIMENTS - 1 + TAILLE_FROMAGE - 1 + TAILLE_FROMAGE - 1;
-	for (int n = 0; n < 3; n++) {
-		if (n == 0){
-			image[n] = new QImage("./assets/pain.png");
+	int pixtaille = 0, nmax;
+	int cf = 0, cv = 0, cc = 0;
+	bool choix = true;
+
+	if (!firsttime)
+		for (int i = 0; i < (1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1); i++)
+			plotImg[i]->hide();
+
+
+	if (choisistaille[0]) {
+		pixtaille = 200;
+	}
+	else if (choisistaille[1]) {
+		pixtaille = 240;
+	}
+	else if (choisistaille[2]) {
+		pixtaille = 260;
+	}
+	else if (choisistaille[3]) {
+		pixtaille = 300;
+	}
+
+	nmax = 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1;
+
+	for (int n = 0; n < (nmax); n++) {
+		if (n == 0) {
+			image[n] = new QImage(path_image[n]);
+			choix = true;
 		}
-		else if (n == 1) {
-			image[n] = new QImage("./assets/fromage/Cheddar.png");
+		else if (n < 8) {
+			choix = false;
+			image[n] = new QImage(path_image[n]);
+			if (choisisFromage[cf] == true) {
+				choix = true;
+			}
+			cf++;
+		}
+		else if (n < 17) {
+			choix = false;
+			image[n] = new QImage(path_image[n]);
+			if (choisisViande[cv] == true) {
+				choix = true;
+			}
+			cv++;
 		}
 		else {
-			image[n] = new QImage("./assets/viande/Pepperonni.png");
+			choix = false;
+			image[n] = new QImage(path_image[n]);
+			if (choisiscondiments[cc] == true) {
+				choix = true;
+			}
+			cc++;
 		}
-		//QImage image("./assets/pain.png");
-		QImage image2 = image[n]->scaled(pixtaille, pixtaille, Qt::KeepAspectRatio);
-		//QImage image2 = image.scaled(0, 0, Qt::KeepAspectRatio);
+
+		QImage image2;
+
+		if (choix == true) {
+			image2 = image[n]->scaled(pixtaille, pixtaille);
+		}
+		else {
+			image2 = image[n]->scaled(0, 0);
+		}
+
+
 		plotImg[n] = new QLabel(this);
-		//QLabel *plotImg = new QLabel(this);
+
 		plotImg[n]->setScaledContents(true);
 		plotImg[n]->setPixmap(QPixmap::fromImage(image2));
 		plotImg[n]->show();
 		plotImg[n]->move(550, 50);
 	}
 
+	firsttime = false;
+	//qInfo() << cf;
+	//qInfo() << cv;
+	//qInfo() << cc;
+
 }
+
+//void MainWindow::images_pizza() {
+//	int pixtaille = 300, nmax;
+//	//choisistaille[TAILLE_SIZE]
+//	//for
+//	nmax = TAILLE_SIZE + TAILLE_CONDIMENTS - 1 + TAILLE_FROMAGE - 1 + TAILLE_FROMAGE - 1;
+//	for (int n = 0; n < 3; n++) {
+//		if (n == 0) {
+//			image[n] = new QImage(path_image[n]);
+//		}
+//		else if (n == 1) {
+//			image[n] = new QImage(path_image[n]);
+//		}
+//		else {
+//			image[n] = new QImage(path_image[n]);
+//		}
+//		//QImage image("./assets/pain.png");
+//		QImage image2 = image[n]->scaled(pixtaille, pixtaille, Qt::KeepAspectRatio);
+//		//QImage image2 = image.scaled(0, 0, Qt::KeepAspectRatio);
+//		plotImg[n] = new QLabel(this);
+//		//QLabel *plotImg = new QLabel(this);
+//		plotImg[n]->setScaledContents(true);
+//		plotImg[n]->setPixmap(QPixmap::fromImage(image2));
+//		plotImg[n]->show();
+//		plotImg[n]->move(550, 50);
+//	}
+//
+//}
 
 void MainWindow::Reset() {
 	prixtotal = 0;
+	for (int i = 0; i < (1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1); i++)
+		plotImg[i]->hide();
+
 	for (int i = 0; i < TAILLE_SIZE; i++) {
-		
-			BOtailles[i]->setAutoExclusive(false);
-			BOtailles[i]->setChecked(false);
-			BOtailles[i]->setAutoExclusive(true);
-			choisistaille[i] = false;
-			
+
+		BOtailles[i]->setAutoExclusive(false);
+		BOtailles[i]->setChecked(false);
+		BOtailles[i]->setAutoExclusive(true);
+		choisistaille[i] = false;
+
 	}
 	for (int i = 0; i < TAILLE_CONDIMENTS - 1; i++) {
-			BOviandes[i]->setChecked(false);
-			choisiscondiments[i] = false;
+		BOviandes[i]->setChecked(false);
+		choisiscondiments[i] = false;
 	}
-	for (int i = 0; i < TAILLE_CONDIMENTS - 1; i++) {
-			BOcondiments[i]->setChecked(false);
-			choisisViande[i] = false;
+	for (int i = 0; i < TAILLE_VIANDES - 1; i++) {
+		BOcondiments[i]->setChecked(false);
+		choisisViande[i] = false;
 	}
 	for (int i = 0; i < TAILLE_FROMAGE - 1; i++) {
-			BOfromages[i]->setChecked(false);
-			choisisFromage[i] = false;
+		BOfromages[i]->setChecked(false);
+		choisisFromage[i] = false;
 	}
-	
-	prixpizza->setText(QString::number(prixtotal, 'f', 2)+"$");
+
+	prixpizza->setText(QString::number(prixtotal, 'f', 2) + "$");
 
 }
 
@@ -467,20 +552,22 @@ void MainWindow::Interface3(QPushButton& n) {
 
 void MainWindow::batir_path() {
 	path_image.push_back("./assets/pain.png");
+	qInfo() << "./assets/pain.png";
 
 	for (int i = 0; i < TAILLE_FROMAGE - 1; i++) {
 		path_image.push_back("./assets/fromage/" + QTfromages[i] + ".png");
-		//qInfo() << ("./assets/fromage/" + QTfromages[i] + ".png");
+		qInfo() << ("./assets/fromage/" + QTfromages[i] + ".png");
 	}
 
 	for (int i = 0; i < TAILLE_VIANDES - 1; i++) {
 		path_image.push_back("./assets/viande/" + QTviandes[i] + ".png");
-		//qInfo() << ("./assets/viande/" + QTviandes[i] + ".png");
+		qInfo() << ("./assets/viande/" + QTviandes[i] + ".png");
 	}
 
 	for (int i = 0; i < TAILLE_CONDIMENTS - 1; i++) {
 		path_image.push_back("./assets/condiment/" + QTcondiments[i] + ".png");
-		//qInfo() << ("./assets/condiment/" + QTcondiments[i] + ".png");
+		qInfo() << ("./assets/condiment/" + QTcondiments[i] + ".png");
 	}
-
+	for (int i = 0; i < (1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1); i++)
+		qInfo() << path_image[i];
 }

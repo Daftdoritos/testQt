@@ -24,6 +24,7 @@ public:
 	void Interface2();
 	void batir_path();
 	void images_pizza();
+	void cacher_images();
 	
 	
 public slots:
@@ -45,6 +46,7 @@ public slots:
 
 private:
 	float prixtotal;
+	bool firsttime = true;
 
 	const QString QTgrandeur[4] = { "Petite","Moyenne","Grande","XL" };
 	const QString QTcondiments[9] = { "Tomates","Onions","Piments","Epinards","Champignons" ,"Jalapenos","Ananas","Olives","Ail" };
@@ -67,8 +69,8 @@ private:
 
 	std::vector<QString> path_image;
 
-	QImage *image[1 + TAILLE_CONDIMENTS-1 + TAILLE_FROMAGE-1 + TAILLE_FROMAGE - 1];
-	QLabel *plotImg[1 + TAILLE_CONDIMENTS - 1 + TAILLE_FROMAGE - 1 + TAILLE_FROMAGE - 1];
+	QImage *image[1 + TAILLE_CONDIMENTS-1 + TAILLE_VIANDES-1 + TAILLE_FROMAGE - 1];
+	QLabel *plotImg[1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1];
 
 	QGridLayout *lay1;
 	QGridLayout *lay2;
@@ -82,12 +84,12 @@ private:
 
 	bool choisistaille[TAILLE_SIZE] = { false, false, false, false };
 	bool choisiscondiments[TAILLE_CONDIMENTS-1] = { false,false, false, false, false, false, false, false, false };
-	bool choisisViande[TAILLE_CONDIMENTS-1] = { false,false, false, false, false, false, false, false, false };
+	bool choisisViande[TAILLE_VIANDES-1] = { false,false, false, false, false, false, false, false, false };
 	bool choisisFromage[TAILLE_FROMAGE-1] = { false, false, false, false, false,false, false};
-	
+		
 	double prixFromage[TAILLE_FROMAGE-1] = { 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50 };
 	double prixCondiment[TAILLE_CONDIMENTS-1] = { 0.50 , 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50};
-	double prixViande[TAILLE_CONDIMENTS-1] = { 0.50 , 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50 };
+	double prixViande[TAILLE_VIANDES-1] = { 0.50 , 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50 };
 	double prix_Grandeur[TAILLE_SIZE] = { 8.50,10.25,12.50,15.70 };
 };
 
