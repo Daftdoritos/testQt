@@ -642,23 +642,23 @@ void MainWindow::transfer2() {
 
 void MainWindow::batir_path() {
 	path_image.push_back("./assets/pain.png");
-	qInfo() << "./assets/pain.png";
+	//qInfo() << "./assets/pain.png";
 
 	for (int i = 0; i < TAILLE_FROMAGE - 1; i++) {
 		path_image.push_back("./assets/fromage/" + QTfromages[i] + ".png");
-		qInfo() << ("./assets/fromage/" + QTfromages[i] + ".png");
+		//qInfo() << ("./assets/fromage/" + QTfromages[i] + ".png");
 	}
 
 	
 	for (int i = 0; i < TAILLE_VIANDES - 1; i++) {
 		path_image.push_back("./assets/viande/" + QTviandes[i] + ".png");
-		qInfo() << ("./assets/viande/" + QTviandes[i] + ".png");
+		//qInfo() << ("./assets/viande/" + QTviandes[i] + ".png");
 	}
 
 	for (int i = 0; i < TAILLE_CONDIMENTS - 1; i++) {
 		path_image.push_back("./assets/condiment/" + QTcondiments[i] + ".png");
-		qInfo() << ("./assets/condiment/" + QTcondiments[i] + ".png");
+		//qInfo() << ("./assets/condiment/" + QTcondiments[i] + ".png");
 	}
-	for (int i = 0; i < (1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1); i++)
-		qInfo() << path_image[i];
+	//for (int i = 0; i < (1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1); i++)
+	//	qInfo() << path_image[i];
 }
