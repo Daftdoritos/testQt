@@ -24,7 +24,7 @@ public:
 	void Interface2();
 	void batir_path();
 	void images_pizza();
-	void cacher_images();
+
 	
 	
 public slots:
