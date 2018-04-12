@@ -87,7 +87,8 @@ void MainWindow::Interface2() {
 	Ecran2 = true;
 
 	prixpizza = new QLabel("00.00$", this);
-	prixpizza->move(825, 0);
+	prixpizza->setFont(QFont("Comic Sans MS", 14));
+	prixpizza->move(805, 0);
 	prixpizza->show();
 
 	QPixmap bkgnd("./yellowfont.png");
@@ -406,7 +407,6 @@ void MainWindow::check() {
 	s = QString::number(prixtotal, 'f', 2);
 	prixpizza->setText(s + "$");
 	prixpizza->show();
-	prixpizza->move(825, 0);
 	images_pizza();
 
 }
