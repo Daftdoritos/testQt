@@ -43,7 +43,7 @@ public slots:
 	void moveFocus(int dy);
 	void Reset();
 	
-	//void State();
+	
 
 
 private:
@@ -81,7 +81,7 @@ private:
 	QGridLayout *lay1;
 	QGridLayout *lay2;
 	QGridLayout *lay3;
-	QGridLayout *lay4;
+	QGridLayout*lay4;
 	
 	QGroupBox *viande;
 	QGroupBox *condiment;

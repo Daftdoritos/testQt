@@ -138,15 +138,15 @@ void MainWindow::Interface2() {
 
 
 	viande->setLayout(lay2);
-	viande->move(210, 0);
+	viande->move(220, 0);
 
 	condiment->setLayout(lay3);
-	condiment->move(110, 0);
+	condiment->move(100, 0);
 
 
 
 	fromage->setLayout(lay4);
-	fromage->move(310, 0);
+	fromage->move(325, 0);
 
 
 	grandeur->show();
