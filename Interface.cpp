@@ -41,11 +41,12 @@ void MainWindow::Interface1()
 	this->setFixedSize(885, 412);
 	//this->setStyleSheet("background-image: url(./Pimpmypizz.png)");
 
-	QPixmap bkgnd("./Pimpmypizz.png");
+	QPixmap bkgnd("./assets/pimpmypizzabackground.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;
 	palette.setBrush(QPalette::Background, bkgnd);
 	this->setPalette(palette);
+	
 
 
 	// Construction des deux boutons Start Quit
@@ -591,7 +592,7 @@ void MainWindow::Interface3() {
 		}
 	firsttime = true;
 
-	QPixmap bkgnd("./spacepizza.png");
+	QPixmap bkgnd("./whitebkgnd.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;
 	palette.setBrush(QPalette::Background, bkgnd);
