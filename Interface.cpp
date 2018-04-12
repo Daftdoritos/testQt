@@ -86,9 +86,9 @@ void MainWindow::Interface2() {
 
 	Ecran2 = true;
 
-	prixpizza = new QLabel("00.00$", this);
+	prixpizza = new QLabel("Facture:  00.00$", this);
 	prixpizza->setFont(QFont("Comic Sans MS", 14));
-	prixpizza->move(805, 0);
+	prixpizza->move(600, 0);
 	prixpizza->show();
 
 	QPixmap bkgnd("./yellowfont.png");
@@ -405,7 +405,7 @@ void MainWindow::check() {
 	qInfo() << prixtotal;
 
 	s = QString::number(prixtotal, 'f', 2);
-	prixpizza->setText(s + "$");
+	prixpizza->setText("Facture:  "+s + "$");
 	prixpizza->show();
 	images_pizza();
 
@@ -554,7 +554,7 @@ void MainWindow::Reset() {
 		choisisFromage[i] = false;
 	}
 
-	prixpizza->setText(QString::number(prixtotal, 'f', 2) + "$");
+	prixpizza->setText("Facture:  "+QString::number(prixtotal, 'f', 2) + "$");
 
 }
 
