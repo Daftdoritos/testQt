@@ -41,11 +41,12 @@ void MainWindow::Interface1()
 	this->setFixedSize(885, 412);
 	//this->setStyleSheet("background-image: url(./Pimpmypizz.png)");
 
-	QPixmap bkgnd("./Pimpmypizz.png");
+	QPixmap bkgnd("./assets/pimpmypizzabackground.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;
 	palette.setBrush(QPalette::Background, bkgnd);
 	this->setPalette(palette);
+	
 
 
 	// Construction des deux boutons Start Quit
@@ -86,8 +87,9 @@ void MainWindow::Interface2() {
 
 	Ecran2 = true;
 
-	prixpizza = new QLabel("00.00$", this);
-	prixpizza->move(825, 0);
+	prixpizza = new QLabel("Facture:  00.00$", this);
+	prixpizza->setFont(QFont("Comic Sans MS", 14));
+	prixpizza->move(600, 0);
 	prixpizza->show();
 
 	QPixmap bkgnd("./yellowfont.png");
@@ -138,15 +140,15 @@ void MainWindow::Interface2() {
 
 
 	viande->setLayout(lay2);
-	viande->move(210, 0);
+	viande->move(220, 0);
 
 	condiment->setLayout(lay3);
-	condiment->move(110, 0);
+	condiment->move(100, 0);
 
 
 
 	fromage->setLayout(lay4);
-	fromage->move(310, 0);
+	fromage->move(325, 0);
 
 
 	grandeur->show();
@@ -354,10 +356,10 @@ void MainWindow::check() {
 		{
 			choisistaille[i] = false;
 
-			//qApp->quit();
+			
 		}
 
-		//qInfo()<< choisistaille[i];
+		
 	}
 	for (int i = 0; i < TAILLE_CONDIMENTS - 1; i++) {
 		if (BOcondiments[i]->isChecked())
@@ -381,10 +383,10 @@ void MainWindow::check() {
 		{
 			choisisViande[i] = false;
 
-			//qApp->quit();
+			
 		}
 
-		//qInfo() << choisisViande[i];
+	
 	}
 	for (int i = 0; i < TAILLE_FROMAGE - 1; i++) {
 		if (BOfromages[i]->isChecked())
@@ -396,17 +398,16 @@ void MainWindow::check() {
 		{
 			choisisFromage[i] = false;
 
-			//qApp->quit();
+			
 		}
 
-		//qInfo() << choisisFromage[i];
+		
 	}
 	qInfo() << prixtotal;
 
 	s = QString::number(prixtotal, 'f', 2);
-	prixpizza->setText(s + "$");
+	prixpizza->setText("Facture:  "+s + "$");
 	prixpizza->show();
-	prixpizza->move(825, 0);
 	images_pizza();
 
 }
@@ -554,7 +555,7 @@ void MainWindow::Reset() {
 		choisisFromage[i] = false;
 	}
 
-	prixpizza->setText(QString::number(prixtotal, 'f', 2) + "$");
+	prixpizza->setText("Facture:  "+QString::number(prixtotal, 'f', 2) + "$");
 
 }
 
@@ -591,7 +592,7 @@ void MainWindow::Interface3() {
 		}
 	firsttime = true;
 
-	QPixmap bkgnd("./spacepizza.png");
+	QPixmap bkgnd("./whitebkgnd.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;
 	palette.setBrush(QPalette::Background, bkgnd);
@@ -641,23 +642,23 @@ void MainWindow::transfer2() {
 
 void MainWindow::batir_path() {
 	path_image.push_back("./assets/pain.png");
-	qInfo() << "./assets/pain.png";
+	//qInfo() << "./assets/pain.png";
 
 	for (int i = 0; i < TAILLE_FROMAGE - 1; i++) {
 		path_image.push_back("./assets/fromage/" + QTfromages[i] + ".png");
-		qInfo() << ("./assets/fromage/" + QTfromages[i] + ".png");
+		//qInfo() << ("./assets/fromage/" + QTfromages[i] + ".png");
 	}
 
 	
 	for (int i = 0; i < TAILLE_VIANDES - 1; i++) {
 		path_image.push_back("./assets/viande/" + QTviandes[i] + ".png");
-		qInfo() << ("./assets/viande/" + QTviandes[i] + ".png");
+		//qInfo() << ("./assets/viande/" + QTviandes[i] + ".png");
 	}
 
 	for (int i = 0; i < TAILLE_CONDIMENTS - 1; i++) {
 		path_image.push_back("./assets/condiment/" + QTcondiments[i] + ".png");
-		qInfo() << ("./assets/condiment/" + QTcondiments[i] + ".png");
+		//qInfo() << ("./assets/condiment/" + QTcondiments[i] + ".png");
 	}
-	for (int i = 0; i < (1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1); i++)
-		qInfo() << path_image[i];
+	//for (int i = 0; i < (1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1); i++)
+	//	qInfo() << path_image[i];
 }

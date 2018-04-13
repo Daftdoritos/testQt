@@ -10,7 +10,7 @@
 #include <chrono>
 using namespace std;
 
-string interface7::chercherGrandeurPizza() {
+/*string interface7::chercherGrandeurPizza() {
 	return grandeurPizza;
 }
 void interface7::setgrandeurPizza(string grandeur) {
@@ -28,7 +28,7 @@ string interface7::chercherViande(int index) {
 string interface7::chercherFromage(int index) {
 
 	return fromages[index];
-}
+}*/
 
 interface7::interface7() {
 	initFPGA();
@@ -42,7 +42,7 @@ interface7::~interface7()
 
 };
 
-void interface7::selectionecran()
+/*void interface7::selectionecran()
 {
 	switch (positionecran) {
 	case 0:
@@ -52,7 +52,7 @@ void interface7::selectionecran()
 		ecrantaille();
 		break;
 	}
-};
+};*/
 
 int interface7::detection_phoneme() {
 
@@ -104,7 +104,7 @@ int interface7::detection_phoneme() {
 
 };
 
-int interface7::interaction() {
+/*int interface7::interaction() {
 	int sortie, reponse, val = 0;
 	while (1) {
 		fpga.lireRegistre(BTNR, val);
@@ -136,9 +136,9 @@ int interface7::interaction() {
 		}
 		val = 0;
 	}
-};
+};*/
 
-void interface7::ecrandacceuil() {
+/*void interface7::ecrandacceuil() {
 
 	int entree;
 	//system("cls");
@@ -169,9 +169,9 @@ void interface7::ecrandacceuil() {
 		system("cls");
 	}
 	ecrandacceuil();
-}
+}*/
 
-void interface7::ecranconfirmationcommande() {
+/*void interface7::ecranconfirmationcommande() {
 	int n;
 	int entree;
 	//string Condiments = "";
@@ -224,8 +224,8 @@ void interface7::ecranconfirmationcommande() {
 	}
 	ecranconfirmationcommande();
 
-}
-void interface7::ecrancondiment() {
+}*/
+/*void interface7::ecrancondiment() {
 	int n;
 	int entree;
 	//string Condiments ="";
@@ -281,9 +281,9 @@ void interface7::ecrancondiment() {
 		break;
 	}
 	ecrancondiment();
-}
+}*/
 
-void interface7::ecranviande() {
+/*void interface7::ecranviande() {
 	int n;
 	int entree;
 	//string Condiments ="";
@@ -339,9 +339,9 @@ void interface7::ecranviande() {
 		break;
 	}
 	ecranviande();
-}
+}*/
 
-void interface7::ecranfromage() {
+/*void interface7::ecranfromage() {
 	int n;
 	int entree;
 
@@ -398,8 +398,8 @@ void interface7::ecranfromage() {
 	}
 	ecranfromage();
 }
-
-void interface7::ecrantaille() {
+*/
+/*void interface7::ecrantaille() {
 	int n;
 	int entree;
 	system("cls");
@@ -440,7 +440,7 @@ void interface7::ecrantaille() {
 		break;
 	}
 	interface7::ecrantaille();
-}
+}*/
 
 bool interface7::initFPGA()
 {
