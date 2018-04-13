@@ -92,7 +92,7 @@ void MainWindow::Interface2() {
 	prixpizza->move(600, 0);
 	prixpizza->show();
 
-	QPixmap bkgnd("./yellowfont.png");
+	QPixmap bkgnd("./assets/yellowfont.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;
 	palette.setBrush(QPalette::Background, bkgnd);
@@ -592,7 +592,7 @@ void MainWindow::Interface3() {
 		}
 	firsttime = true;
 
-	QPixmap bkgnd("./whitebkgnd.png");
+	QPixmap bkgnd("./assets/whitebkgnd.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;
 	palette.setBrush(QPalette::Background, bkgnd);
@@ -604,9 +604,9 @@ void MainWindow::Interface3() {
 	NextOrder->move(500, 380);
 	NextOrder->show();
 
-	remerciement = new QLabel("Merci d'avoir fait affaire avec WestCoast Custom Pizza (ft. Xzibit)", this);
+	remerciement = new QLabel("Merci d'avoir fait affaire avec WestCoast Custom Pizza", this);
 	remerciement->setFont(QFont("Comic Sans MS", 14));
-	remerciement->move(150, 175);
+	remerciement->move(175, 175);
 	remerciement->show();
 
 	QObject::connect(NextOrder, SIGNAL(clicked()), this, SLOT(transfer2()));
