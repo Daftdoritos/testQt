@@ -50,6 +50,9 @@ public slots:
 private:
 	QTextEdit * facture;
 
+	QLabel* phoneme;
+	QLabel*	fpgaok;
+
 	float prixtotal;
 	float TPS;
 	float TVQ;
@@ -61,6 +64,7 @@ private:
 	const QString QTfromages[7] = { "Cheddar","Parmesan","Fetta","MontereyJack","Provolone","Chevre","Bleu"};
 	
 	interface7 pizza;
+	CommunicationFPGA fpga1;
 	QLabel * prixpizza;
 	QString s;
 	QLabel *remerciement;

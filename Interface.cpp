@@ -76,6 +76,14 @@ void MainWindow::Interface2() {
 	
 	prixtotal = 0;
 
+	fpgaok = new QLabel("ok",this);
+	phoneme = new QLabel("phoneme",this);
+	if (fpga1.estOk()) {
+		fpgaok->move(0, 300);
+		fpgaok->show();
+	}
+
+
 	reset = new QPushButton("Reset", this);
 	reset->setFont(QFont("Comic Sans MS", 14));
 	reset->setCursor(Qt::PointingHandCursor);
@@ -616,7 +624,7 @@ void MainWindow::Interface3() {
 	
 	
 	facture->setFixedSize(150, 412);
-	facture->move(0, 0);
+	facture->move(735, 0);
 
 	facture->show();
 	facture->append("");
