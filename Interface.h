@@ -24,6 +24,7 @@ public:
 	void Interface2();
 	void batir_path();
 	void images_pizza();
+	
 
 	
 	
@@ -47,7 +48,11 @@ public slots:
 
 
 private:
+	QTextEdit * facture;
+
 	float prixtotal;
+	float TPS;
+	float TVQ;
 	bool firsttime = true;
 
 	const QString QTgrandeur[4] = { "Petite","Moyenne","Grande","XL" };

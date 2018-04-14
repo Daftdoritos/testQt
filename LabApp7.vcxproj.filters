@@ -38,6 +38,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CommunicationFPGA.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <CustomBuild Include="Interface.h">
       <Filter>Header Files</Filter>
     </CustomBuild>

@@ -73,6 +73,9 @@ void MainWindow::transfer() {
 }
 
 void MainWindow::Interface2() {
+	
+	prixtotal = 0;
+
 	reset = new QPushButton("Reset", this);
 	reset->setFont(QFont("Comic Sans MS", 14));
 	reset->setCursor(Qt::PointingHandCursor);
@@ -162,7 +165,7 @@ void MainWindow::Interface2() {
 	//this->setStyleSheet("QRadioButton::focus{ background: black; color: white;}");
 	this->setStyleSheet("QCheckBox::focus{ background: black; color: white;}"
 		"QRadioButton::focus{ background: black; color: white;}");
-
+	Reset();
 
 	settruefalse();
 
@@ -608,7 +611,47 @@ void MainWindow::Interface3() {
 	remerciement->setFont(QFont("Comic Sans MS", 14));
 	remerciement->move(175, 175);
 	remerciement->show();
+	
+	facture = new QTextEdit("Facture:",this);
+	
+	
+	facture->setFixedSize(150, 412);
+	facture->move(0, 0);
 
+	facture->show();
+	facture->append("");
+	
+
+	for (int i = 0; i < 4;  i++) {
+		if (choisistaille[i]) {
+			facture->append(QTgrandeur[i] + "\t " + QString::number(prix_Grandeur[i], 'f', 2) + "$");
+		}
+	}
+	for (int i = 0; i < TAILLE_CONDIMENTS - 1; i++) {
+		if (choisiscondiments[i]) {
+			facture->append(QTcondiments[i] + "\t " + QString::number(prixCondiment[i], 'f', 2) + "$");
+		}
+	}
+	for (int i = 0; i < TAILLE_VIANDES - 1; i++) {
+		if (choisisViande[i]) {
+			facture->append(QTviandes[i] + "\t " + QString::number(prixViande[i], 'f', 2) + "$");
+		}
+	}
+	for (int i=0; i<TAILLE_FROMAGE-1;i++) {
+		if (choisisFromage[i]) {
+			facture->append(QTfromages[i] + "\t " + QString::number(prixFromage[i], 'f', 2) + "$");
+		}
+	}
+	TPS = prixtotal * 5 / 100;
+	TVQ = prixtotal * 9.975 / 100;
+	facture->append("SOUS TOTAL:\t "+ QString::number(prixtotal, 'f', 2) + "$");
+	facture->append("TPS (5%):\t" + QString::number(TPS,'f',2)+"$");
+	facture->append("TVQ (9.975%):\t" + QString::number(TVQ,'f',2) + "$");
+	prixtotal = TPS + TVQ+prixtotal;
+	facture->append("TOTAL:\t " + QString::number(prixtotal, 'f', 2) + "$");
+	
+	facture->setReadOnly(true);
+	
 	QObject::connect(NextOrder, SIGNAL(clicked()), this, SLOT(transfer2()));
 }
 
@@ -628,12 +671,13 @@ void MainWindow::transfer1() {
 
 }
 void MainWindow::transfer2() {
-
+	
+	
 
 	delete quit;
 	delete remerciement;
 	delete NextOrder;
-
+	delete facture;
 	
 
 	Interface1();
