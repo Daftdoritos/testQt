@@ -19,6 +19,10 @@ MainWindow::MainWindow() {
 
 	batir_path();
 
+	for (int n = 0; n < (nmax); n++) {
+		image[n] = new QImage(path_image[n]);
+	}
+
 	shortcut = new QShortcut(QKeySequence(Qt::Key_Up), this,
 		SLOT(on_up()));
 	shortcut = new QShortcut(QKeySequence(Qt::Key_Down), this,
@@ -298,16 +302,16 @@ void MainWindow::on_left()
 	int idex4 = lay4->indexOf(qApp->focusWidget());
 	
 	if (idex3 != -1) {
-		lay1->itemAtPosition(idex3, 0)->widget()->setFocus();
+		lay1->itemAtPosition(0, 0)->widget()->setFocus();
 	}
 	if (idex2 != -1) {
-		lay3->itemAtPosition(idex2, 0)->widget()->setFocus();
+		lay3->itemAtPosition(0, 0)->widget()->setFocus();
 	}
 	if (idex4 != -1) {
-		lay2->itemAtPosition(idex4, 0)->widget()->setFocus();
+		lay2->itemAtPosition(0, 0)->widget()->setFocus();
 	}
 	if (idex1 != -1) {
-		lay4->itemAtPosition(idex1, 0)->widget()->setFocus();
+		lay4->itemAtPosition(0, 0)->widget()->setFocus();
 	}
 }
 
@@ -337,8 +341,6 @@ void MainWindow::changeCheck() {
 		BOfromages[idex4]->click();
 	}
 }
-
-
 
 
 void MainWindow::moveFocus(int dy)
@@ -481,18 +483,14 @@ void MainWindow::check() {
 }
 
 void MainWindow::images_pizza() {
-	int pixtaille = 0, nmax;
+	int pixtaille = 0;
 	int cf = 0, cv = 0, cc = 0;
 	bool choix = true;
-	nmax = 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1;
-
+	int dx = 0, dy = 0;
+	
 	if (!firsttime) {
 		for (int n = 0; n < nmax; n++) {
 			delete plotImg[n];
-		}
-	} else {
-		for (int n = 0; n < (nmax); n++) {
-				image[n] = new QImage(path_image[n]);
 		}
 	}
 	
@@ -500,18 +498,20 @@ void MainWindow::images_pizza() {
 
 	if (choisistaille[0]) {
 		pixtaille = 200;
+		dx = dy = 50;
 	}
 	else if (choisistaille[1]) {
 		pixtaille = 240;
+		dx = dy = 30;
 	}
 	else if (choisistaille[2]) {
 		pixtaille = 260;
+		dx = dy = 20;
 	}
 	else if (choisistaille[3]) {
 		pixtaille = 300;
+		dx = dy = 0;
 	}
-
-	
 
 	for (int n = 0; n < (nmax); n++) {
 		if (n == 0) {
@@ -554,7 +554,7 @@ void MainWindow::images_pizza() {
 		plotImg[n]->setScaledContents(true);
 		plotImg[n]->setPixmap(QPixmap::fromImage(image2));
 		plotImg[n]->show();
-		plotImg[n]->move(550, 50);
+		plotImg[n]->move(550 + dx, 50 + dy);
 	}
 
 	firsttime = false;
@@ -597,7 +597,7 @@ void MainWindow::Reset() {
 
 	if (!firsttime)
 		for (int n = 0; n < 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1; n++) {
-			delete image[n];
+			//delete image[n];
 			delete plotImg[n];
 		}
 	firsttime = true;
@@ -655,7 +655,7 @@ void MainWindow::Interface3() {
 
 	if (!firsttime)
 		for (int n = 0; n < 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1; n++) {
-			delete image[n];
+			//delete image[n];
 			delete plotImg[n];
 		}
 	firsttime = true;
@@ -727,7 +727,7 @@ void MainWindow::transfer1() {
 			plotImg[n]->hide();
 		}
 		for (int n = 0; n < 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1; n++) {
-			delete image[n];
+			//delete image[n];
 			delete plotImg[n];
 		}
 		firsttime = true;
