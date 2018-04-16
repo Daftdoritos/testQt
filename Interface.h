@@ -47,10 +47,12 @@ public slots:
 	void changeCheck();
 	void moveFocus(int dy);
 	void Reset();
-	
-	
 
-
+signals:
+	void sigFocus(int a);
+	void sigCheck();
+	void sigRight();
+	
 private:
 	std::thread * t1;
 	QTextEdit * facture;

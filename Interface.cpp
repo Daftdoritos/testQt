@@ -194,6 +194,10 @@ void MainWindow::Interface2() {
 	
 	QObject::connect(confirmer, SIGNAL(clicked()), this, SLOT(transfer1()));
 	QObject::connect(reset, SIGNAL(clicked()), this, SLOT(Reset()));
+
+	QObject::connect(this, SIGNAL(sigFocus(int)), this, SLOT(moveFocus(int)));
+	QObject::connect(this, SIGNAL(sigCheck()), this, SLOT(changeCheck()));
+	QObject::connect(this, SIGNAL(sigRight()), this, SLOT(on_right()));
 }
 
 void MainWindow::on_up()
@@ -215,40 +219,26 @@ void MainWindow::detectionphoneme()
 				qDebug() << "aucun phoneme detecte";
 			}
 			if (actionphoneme == 1) {
-				moveFocus(1);
+				emit sigFocus(1);
 				qDebug() << "aa detecte"; //aa = bas
 			}
 			if (actionphoneme == 2) {
 				qDebug() << "ii detecte";
-				moveFocus(-1);//ii = top
+				emit sigFocus(-1);//ii = top
 			}
 			if (actionphoneme == 4) {
 				qDebug() << "oo detecte";
 				//QKeyEvent *event = new QKeyEvent(QEvent::KeyPress, Qt::Key_Enter, Qt::NoModifier);
 				//QCoreApplication::postEvent(this, event);
-				changeCheck();
+				emit sigCheck();
 			}
 
 			if (actionphoneme == 8) {
-				int idex1 = lay1->indexOf(qApp->focusWidget());
-				int idex2 = lay2->indexOf(qApp->focusWidget());
-				int idex3 = lay3->indexOf(qApp->focusWidget());
-				int idex4 = lay4->indexOf(qApp->focusWidget());
-				if (idex1 != -1) {
-					lay3->itemAtPosition(0, 0)->widget()->setFocus();
-				}
-				if (idex3 != -1) {
-					lay2->itemAtPosition(0, 0)->widget()->setFocus();
-				}
-				if (idex2 != -1) {
-					lay4->itemAtPosition(0, 0)->widget()->setFocus();
-				}
-				if (idex4 != -1) {
-					lay1->itemAtPosition(0, 0)->widget()->setFocus();
-				}//oo=droite
+				emit sigRight();
 			}
+
 			auto start = std::chrono::high_resolution_clock::now();
-			std::this_thread::sleep_for(0.5s);
+			std::this_thread::sleep_for(0.25s);
 			auto end = std::chrono::high_resolution_clock::now();
 		}
 	}
