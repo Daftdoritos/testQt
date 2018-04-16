@@ -80,8 +80,8 @@ void MainWindow::Interface2() {
 	prixtotal = 0;
 	rules = new QTextEdit("Regle des phonemes:", this);
 	rules->append("");
-	rules->move(100, 250);
-	rules->setFixedSize(300,90);
+	rules->move(100, 300);
+	//rules->setFixedSize();
 	rules->append("'aa'=\t descendre");
 	rules->append("'ii'=\t monter");
 	rules->append("'oo'=\t cocher une case");
@@ -90,13 +90,7 @@ void MainWindow::Interface2() {
 	rules->show();
 
 	fpgaok = new QLabel("ok",this);
-	phoneme = new QLabel("phoneme                           ",this);
-	phoneme->move(100, 350);
-	phoneme->setFont(QFont("Comic Sans MS", 14));
-	phoneme->show();
-
-
-
+	phoneme = new QLabel("phoneme",this);
 	if (fpga1.estOk()) {
 		fpgaok->move(0, 300);
 		fpgaok->show();
@@ -212,44 +206,26 @@ void MainWindow::on_down()
 }
 void MainWindow::on_tab()
 {
-	if (Ecran2==false)
-	{
-		return;
-	}
 	std::chrono::seconds interval(10);
 	int actionphoneme = 0;
 	actionphoneme = pizza.detection_phoneme();
 	if (actionphoneme == 0) {
-		if (Ecran2 == false) {
-			return;
-		}
 
-		phoneme->setText(" aucun phoneme detecte");
-		phoneme->show();
+		qDebug() << "aucun phoneme detecte";
 	}
 	if (actionphoneme == 1) {
-		if (Ecran2 == false) {
-			return;
-		}
 		moveFocus(1);
-		phoneme->setText("aa detecte");
-		phoneme->show();
+		qDebug() << "aa detecte"; //aa = bas
 	}
 	if (actionphoneme == 2) {
-		if (Ecran2 == false) {
-			return;
-		}
-		phoneme->setText("ii detecte");
-		phoneme->show();
+		qDebug() << "ii detecte";
 		moveFocus(-1);//ii = top
 	}
 	if (actionphoneme == 4) {
-
+		qDebug() << "oo detecte";
 		if (Ecran2 == false) {
 			return;
 		}
-		phoneme->setText("oo detecte");
-		phoneme->show();
 		//QKeyEvent *event = new QKeyEvent(QEvent::KeyPress, Qt::Key_Enter, Qt::NoModifier);
 		//QCoreApplication::postEvent(this, event);
 		changeCheck();
@@ -257,7 +233,7 @@ void MainWindow::on_tab()
 	
 	
 	if (actionphoneme == 8) {
-		phoneme->setText("ai detecté");
+		qDebug() << "ai detecte";
 		if (Ecran2 == false) {
 			return;
 		}
@@ -667,7 +643,6 @@ void MainWindow::Reset() {
 }
 
 void MainWindow::Interface3() {
-	delete phoneme;
 	delete rules;
 	delete prixpizza;
 	delete confirmer;
