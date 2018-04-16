@@ -198,7 +198,6 @@ void MainWindow::on_tab()
 	int actionphoneme = 0;
 	actionphoneme = pizza.detection_phoneme();
 	if (actionphoneme == 0) {
-		//bouger a droite 
 
 		qDebug() << "aucun phoneme detecte";
 	}
@@ -215,8 +214,11 @@ void MainWindow::on_tab()
 		if (Ecran2 == false) {
 			return;
 		}
-
+		//QKeyEvent *event = new QKeyEvent(QEvent::KeyPress, Qt::Key_Enter, Qt::NoModifier);
+		//QCoreApplication::postEvent(this, event);
+		changeCheck();
 	}
+
 	if (actionphoneme == 8) {
 		if (Ecran2 == false) {
 			return;
@@ -294,20 +296,47 @@ void MainWindow::on_left()
 	int idex2 = lay2->indexOf(qApp->focusWidget());
 	int idex3 = lay3->indexOf(qApp->focusWidget());
 	int idex4 = lay4->indexOf(qApp->focusWidget());
+	
 	if (idex3 != -1) {
-		lay1->itemAtPosition(0, 0)->widget()->setFocus();
+		lay1->itemAtPosition(idex3, 0)->widget()->setFocus();
 	}
 	if (idex2 != -1) {
-		lay3->itemAtPosition(0, 0)->widget()->setFocus();
+		lay3->itemAtPosition(idex2, 0)->widget()->setFocus();
 	}
 	if (idex4 != -1) {
-		lay2->itemAtPosition(0, 0)->widget()->setFocus();
+		lay2->itemAtPosition(idex4, 0)->widget()->setFocus();
 	}
 	if (idex1 != -1) {
-		lay4->itemAtPosition(0, 0)->widget()->setFocus();
+		lay4->itemAtPosition(idex1, 0)->widget()->setFocus();
 	}
 }
 
+void MainWindow::changeCheck() {
+	if (Ecran2 == false) {
+		return;
+	}
+	int idex1 = lay1->indexOf(qApp->focusWidget());
+	int idex2 = lay2->indexOf(qApp->focusWidget());
+	int idex3 = lay3->indexOf(qApp->focusWidget());
+	int idex4 = lay4->indexOf(qApp->focusWidget());
+
+	//QKeyEvent *event = new QKeyEvent(QEvent::KeyPress, Qt::Key_Space, Qt::NoModifier);
+
+	if (idex1 != -1) {
+
+		BOtailles[idex1]->click();
+	}
+	if (idex2 != -1) {
+		BOviandes[idex2]->click();
+		
+	}
+	if (idex3 != -1) {
+		BOcondiments[idex3]->click();
+	}
+	if (idex4 != -1) {
+		BOfromages[idex4]->click();
+	}
+}
 
 
 
