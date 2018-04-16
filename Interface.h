@@ -7,6 +7,7 @@
 
 #include <string>
 #include <vector>
+#include <thread>
 
 #include "programme.h"
 #include "CommunicationFPGA.h"
@@ -20,7 +21,9 @@ class MainWindow : public QWidget
 	Q_OBJECT
 public:
 	MainWindow();
+	~MainWindow();
 	void Interface1();
+	void detectionphoneme();
 	void Interface2();
 	void batir_path();
 	void images_pizza();
@@ -37,18 +40,21 @@ public slots:
 	void settruefalse();
 	void on_up();
 	void on_down();
-	void on_tab();
+	//void on_tab();
 	void on_enter();
 	void on_left();
 	void on_right();
 	void changeCheck();
 	void moveFocus(int dy);
 	void Reset();
-	
-	
 
-
+signals:
+	void sigFocus(int a);
+	void sigCheck();
+	void sigRight();
+	
 private:
+	std::thread * t1;
 	QTextEdit * facture;
 	QTextEdit* rules;
 

@@ -8,6 +8,8 @@
 #include <conio.h>
 #include <string>
 #include <chrono>
+#include <vector>
+#include <thread>
 
 using namespace std;
 bool Ecran2 = false;
