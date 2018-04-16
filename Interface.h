@@ -41,6 +41,7 @@ public slots:
 	void on_enter();
 	void on_left();
 	void on_right();
+	void changeCheck();
 	void moveFocus(int dy);
 	void Reset();
 	
