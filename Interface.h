@@ -56,15 +56,17 @@ signals:
 private:
 	std::thread * t1;
 	QTextEdit * facture;
+	QTextEdit* rules;
 
 	QLabel* phoneme;
 	QLabel*	fpgaok;
+
+	
 
 	float prixtotal;
 	float TPS;
 	float TVQ;
 	bool firsttime = true;
-	const int nmax = 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1;
 
 	const QString QTgrandeur[4] = { "Petite","Moyenne","Grande","XL" };
 	const QString QTcondiments[9] = { "Tomates","Onions","Piments","Epinards","Champignons" ,"Jalapenos","Ananas","Olives","Ail" };
