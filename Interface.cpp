@@ -8,6 +8,8 @@
 #include <conio.h>
 #include <string>
 #include <chrono>
+#include <vector>
+#include <thread>
 
 using namespace std;
 bool Ecran2 = false;
@@ -27,8 +29,8 @@ MainWindow::MainWindow() {
 		SLOT(on_up()));
 	shortcut = new QShortcut(QKeySequence(Qt::Key_Down), this,
 		SLOT(on_down()));
-	shortcut = new QShortcut(QKeySequence(Qt::Key_Tab), this,
-		SLOT(on_tab()));
+	/*shortcut = new QShortcut(QKeySequence(Qt::Key_Tab), this,
+		SLOT(on_tab()));*/
 	shortcut = new QShortcut(QKeySequence(Qt::Key_Return), this,
 		SLOT(on_enter()));
 	shortcut = new QShortcut(QKeySequence(Qt::Key_Left), this,
@@ -36,8 +38,14 @@ MainWindow::MainWindow() {
 	shortcut = new QShortcut(QKeySequence(Qt::Key_Right), this,
 		SLOT(on_right()));
 
+	t1 = new std::thread(&MainWindow::detectionphoneme, this);
+
 	Interface1();
 
+}
+
+MainWindow::~MainWindow() {
+	t1->join();
 }
 
 void MainWindow::Interface1()
@@ -197,52 +205,52 @@ void MainWindow::on_down()
 {
 	moveFocus(1);
 }
-void MainWindow::on_tab()
+void MainWindow::detectionphoneme()
 {
-	int actionphoneme = 0;
-	actionphoneme = pizza.detection_phoneme();
-	if (actionphoneme == 0) {
+	while (1) {
+		if (Ecran2 == true) {
+			int actionphoneme = 0;
+			actionphoneme = pizza.detection_phoneme();
+			if (actionphoneme == 0) {
+				qDebug() << "aucun phoneme detecte";
+			}
+			if (actionphoneme == 1) {
+				moveFocus(1);
+				qDebug() << "aa detecte"; //aa = bas
+			}
+			if (actionphoneme == 2) {
+				qDebug() << "ii detecte";
+				moveFocus(-1);//ii = top
+			}
+			if (actionphoneme == 4) {
+				qDebug() << "oo detecte";
+				//QKeyEvent *event = new QKeyEvent(QEvent::KeyPress, Qt::Key_Enter, Qt::NoModifier);
+				//QCoreApplication::postEvent(this, event);
+				changeCheck();
+			}
 
-		qDebug() << "aucun phoneme detecte";
-	}
-	if (actionphoneme == 1) {
-		moveFocus(1);
-		qDebug() << "aa detecte"; //aa = bas
-	}
-	if (actionphoneme == 2) {
-		qDebug() << "ii detecte";
-		moveFocus(-1);//ii = top
-	}
-	if (actionphoneme == 4) {
-		qDebug() << "oo detecte";
-		if (Ecran2 == false) {
-			return;
+			if (actionphoneme == 8) {
+				int idex1 = lay1->indexOf(qApp->focusWidget());
+				int idex2 = lay2->indexOf(qApp->focusWidget());
+				int idex3 = lay3->indexOf(qApp->focusWidget());
+				int idex4 = lay4->indexOf(qApp->focusWidget());
+				if (idex1 != -1) {
+					lay3->itemAtPosition(0, 0)->widget()->setFocus();
+				}
+				if (idex3 != -1) {
+					lay2->itemAtPosition(0, 0)->widget()->setFocus();
+				}
+				if (idex2 != -1) {
+					lay4->itemAtPosition(0, 0)->widget()->setFocus();
+				}
+				if (idex4 != -1) {
+					lay1->itemAtPosition(0, 0)->widget()->setFocus();
+				}//oo=droite
+			}
+			auto start = std::chrono::high_resolution_clock::now();
+			std::this_thread::sleep_for(0.5s);
+			auto end = std::chrono::high_resolution_clock::now();
 		}
-		//QKeyEvent *event = new QKeyEvent(QEvent::KeyPress, Qt::Key_Enter, Qt::NoModifier);
-		//QCoreApplication::postEvent(this, event);
-		changeCheck();
-	}
-
-	if (actionphoneme == 8) {
-		if (Ecran2 == false) {
-			return;
-		}
-		int idex1 = lay1->indexOf(qApp->focusWidget());
-		int idex2 = lay2->indexOf(qApp->focusWidget());
-		int idex3 = lay3->indexOf(qApp->focusWidget());
-		int idex4 = lay4->indexOf(qApp->focusWidget());
-		if (idex1 != -1) {
-			lay3->itemAtPosition(0, 0)->widget()->setFocus();
-		}
-		if (idex3 != -1) {
-			lay2->itemAtPosition(0, 0)->widget()->setFocus();
-		}
-		if (idex2 != -1) {
-			lay4->itemAtPosition(0, 0)->widget()->setFocus();
-		}
-		if (idex4 != -1) {
-			lay1->itemAtPosition(0, 0)->widget()->setFocus();
-		}//oo=droite
 	}
 }
 
