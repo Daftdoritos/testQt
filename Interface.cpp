@@ -30,6 +30,10 @@ MainWindow::MainWindow() {
 	shortcut = new QShortcut(QKeySequence(Qt::Key_Right), this,
 		SLOT(on_right()));
 
+	for (int n = 0; n < (nMax); n++) {
+		image[n] = new QImage(path_image[n]);
+	}
+
 	Interface1();
 
 }
@@ -433,13 +437,7 @@ void MainWindow::images_pizza() {
 		for (int n = 0; n < nmax; n++) {
 			delete plotImg[n];
 		}
-	} else {
-		for (int n = 0; n < (nmax); n++) {
-				image[n] = new QImage(path_image[n]);
-		}
-	}
-	
-
+	} 
 
 	if (choisistaille[0]) {
 		pixtaille = 200;
@@ -540,7 +538,7 @@ void MainWindow::Reset() {
 
 	if (!firsttime)
 		for (int n = 0; n < 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1; n++) {
-			delete image[n];
+			//delete image[n];
 			delete plotImg[n];
 		}
 	firsttime = true;
@@ -598,7 +596,7 @@ void MainWindow::Interface3() {
 
 	if (!firsttime)
 		for (int n = 0; n < 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1; n++) {
-			delete image[n];
+			//delete image[n];
 			delete plotImg[n];
 		}
 	firsttime = true;
@@ -670,7 +668,7 @@ void MainWindow::transfer1() {
 			plotImg[n]->hide();
 		}
 		for (int n = 0; n < 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1; n++) {
-			delete image[n];
+			//delete image[n];
 			delete plotImg[n];
 		}
 		firsttime = true;

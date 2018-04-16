@@ -57,7 +57,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>.;..\..\..\..\Qt\5.10.1\msvc2017_64\include;..\..\..\..\Qt\5.10.1\msvc2017_64\include\QtWidgets;..\..\..\..\Qt\5.10.1\msvc2017_64\include\QtGui;..\..\..\..\Qt\5.10.1\msvc2017_64\include\QtANGLE;..\..\..\..\Qt\5.10.1\msvc2017_64\include\QtCore;release;\include;..\..\..\..\Qt\5.10.1\msvc2017_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;C:\Qt\5.9.3\msvc2017_64\include;C:\Qt\5.9.3\msvc2017_64\include\QtWidgets;C:\Qt\5.9.3\msvc2017_64\include\QtGui;C:\Qt\5.9.3\msvc2017_64\include\QtANGLE;C:\Qt\5.9.3\msvc2017_64\include\QtCore;release;C:\Qt\5.9.3\msvc2017_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>release\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
@@ -76,8 +76,8 @@
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>CommunicationFPGA.lib;C:\Qt\5.10.1\msvc2017_64\lib\Qt5Widgets.lib;C:\Qt\5.10.1\msvc2017_64\lib\Qt5Gui.lib;C:\Qt\5.10.1\msvc2017_64\lib\Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Qt\5.10.1\msvc2017_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>CommunicationFPGA.lib;C:\Qt\5.9.3\msvc2017_64\lib\Qt5Widgets.lib;C:\Qt\5.9.3\msvc2017_64\lib\Qt5Gui.lib;C:\Qt\5.9.3\msvc2017_64\lib\Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Qt\5.9.3\msvc2017_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -99,7 +99,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>.;..\..\..\..\Qt\5.10.1\msvc2017_64\include;..\..\..\..\Qt\5.10.1\msvc2017_64\include\QtWidgets;..\..\..\..\Qt\5.10.1\msvc2017_64\include\QtGui;..\..\..\..\Qt\5.10.1\msvc2017_64\include\QtANGLE;..\..\..\..\Qt\5.10.1\msvc2017_64\include\QtCore;debug;\include;..\..\..\..\Qt\5.10.1\msvc2017_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;C:\Qt\5.9.3\msvc2017_64\include;C:\Qt\5.9.3\msvc2017_64\include\QtWidgets;C:\Qt\5.9.3\msvc2017_64\include\QtGui;C:\Qt\5.9.3\msvc2017_64\include\QtANGLE;C:\Qt\5.9.3\msvc2017_64\include\QtCore;debug;C:\Qt\5.9.3\msvc2017_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>debug\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
@@ -116,8 +116,8 @@
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>CommunicationFPGA.lib;C:\Qt\5.10.1\msvc2017_64\lib\Qt5Widgetsd.lib;C:\Qt\5.10.1\msvc2017_64\lib\Qt5Guid.lib;C:\Qt\5.10.1\msvc2017_64\lib\Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Qt\5.10.1\msvc2017_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>CommunicationFPGA.lib;C:\Qt\5.9.3\msvc2017_64\lib\Qt5Widgetsd.lib;C:\Qt\5.9.3\msvc2017_64\lib\Qt5Guid.lib;C:\Qt\5.9.3\msvc2017_64\lib\Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Qt\5.9.3\msvc2017_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -144,12 +144,12 @@
   <ItemGroup>
     <ClInclude Include="CommunicationFPGA.h" />
     <CustomBuild Include="Interface.h">
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Interface.h;release\moc_predefs.h;C:\Qt\5.10.1\msvc2017_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Qt\5.10.1\msvc2017_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include release/moc_predefs.h -IC:/Qt/5.10.1/msvc2017_64/mkspecs/win32-msvc -IC:/Users/Gabriel/Documents/LaboratoireAPP7 -IC:/Qt/5.10.1/msvc2017_64/include -IC:/Qt/5.10.1/msvc2017_64/include/QtWidgets -IC:/Qt/5.10.1/msvc2017_64/include/QtGui -IC:/Qt/5.10.1/msvc2017_64/include/QtANGLE -IC:/Qt/5.10.1/msvc2017_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.13.26128\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.13.26128\include" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\cppwinrt" Interface.h -o release\moc_Interface.cpp</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Interface.h;release\moc_predefs.h;C:\Qt\5.9.3\msvc2017_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Qt\5.9.3\msvc2017_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include release/moc_predefs.h -IC:/Qt/5.9.3/msvc2017_64/mkspecs/win32-msvc -I"C:/Users/Carlos Torres/source/repos/testQt" -IC:/Qt/5.9.3/msvc2017_64/include -IC:/Qt/5.9.3/msvc2017_64/include/QtWidgets -IC:/Qt/5.9.3/msvc2017_64/include/QtGui -IC:/Qt/5.9.3/msvc2017_64/include/QtANGLE -IC:/Qt/5.9.3/msvc2017_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.13.26128\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.13.26128\include" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\cppwinrt" Interface.h -o release\moc_Interface.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC Interface.h</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">release\moc_Interface.cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Interface.h;debug\moc_predefs.h;C:\Qt\5.10.1\msvc2017_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Qt\5.10.1\msvc2017_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include debug/moc_predefs.h -IC:/Qt/5.10.1/msvc2017_64/mkspecs/win32-msvc -IC:/Users/Gabriel/Documents/LaboratoireAPP7 -IC:/Qt/5.10.1/msvc2017_64/include -IC:/Qt/5.10.1/msvc2017_64/include/QtWidgets -IC:/Qt/5.10.1/msvc2017_64/include/QtGui -IC:/Qt/5.10.1/msvc2017_64/include/QtANGLE -IC:/Qt/5.10.1/msvc2017_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.13.26128\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.13.26128\include" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\cppwinrt" Interface.h -o debug\moc_Interface.cpp</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Interface.h;debug\moc_predefs.h;C:\Qt\5.9.3\msvc2017_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Qt\5.9.3\msvc2017_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include debug/moc_predefs.h -IC:/Qt/5.9.3/msvc2017_64/mkspecs/win32-msvc -I"C:/Users/Carlos Torres/source/repos/testQt" -IC:/Qt/5.9.3/msvc2017_64/include -IC:/Qt/5.9.3/msvc2017_64/include/QtWidgets -IC:/Qt/5.9.3/msvc2017_64/include/QtGui -IC:/Qt/5.9.3/msvc2017_64/include/QtANGLE -IC:/Qt/5.9.3/msvc2017_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.13.26128\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.13.26128\include" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\cppwinrt" Interface.h -o debug\moc_Interface.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC Interface.h</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">debug\moc_Interface.cpp;%(Outputs)</Outputs>
     </CustomBuild>
@@ -165,15 +165,15 @@
     <CustomBuild Include="debug\moc_predefs.h.cbt">
       <FileType>Document</FileType>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\..\..\Qt\5.10.1\msvc2017_64\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">cl -BxC:\Qt\5.10.1\msvc2017_64\bin\qmake.exe -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zi -MDd -E ..\..\..\..\Qt\5.10.1\msvc2017_64\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;debug\moc_predefs.h</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Qt\5.9.3\msvc2017_64\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">cl -BxC:\Qt\5.9.3\msvc2017_64\bin\qmake.exe -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zi -MDd -E C:\Qt\5.9.3\msvc2017_64\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;debug\moc_predefs.h</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generate moc_predefs.h</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">debug\moc_predefs.h;%(Outputs)</Outputs>
     </CustomBuild>
     <CustomBuild Include="release\moc_predefs.h.cbt">
       <FileType>Document</FileType>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\..\..\Qt\5.10.1\msvc2017_64\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">cl -BxC:\Qt\5.10.1\msvc2017_64\bin\qmake.exe -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -O2 -MD -E ..\..\..\..\Qt\5.10.1\msvc2017_64\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;release\moc_predefs.h</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Qt\5.9.3\msvc2017_64\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">cl -BxC:\Qt\5.9.3\msvc2017_64\bin\qmake.exe -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -O2 -MD -E C:\Qt\5.9.3\msvc2017_64\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;release\moc_predefs.h</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generate moc_predefs.h</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">release\moc_predefs.h;%(Outputs)</Outputs>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
