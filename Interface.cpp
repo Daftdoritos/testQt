@@ -8,8 +8,10 @@
 #include <conio.h>
 #include <string>
 #include <chrono>
+
 using namespace std;
 bool Ecran2 = false;
+
 
 MainWindow::MainWindow() {
 
@@ -29,10 +31,6 @@ MainWindow::MainWindow() {
 		SLOT(on_left()));
 	shortcut = new QShortcut(QKeySequence(Qt::Key_Right), this,
 		SLOT(on_right()));
-
-	for (int n = 0; n < (nMax); n++) {
-		image[n] = new QImage(path_image[n]);
-	}
 
 	Interface1();
 
@@ -200,19 +198,45 @@ void MainWindow::on_tab()
 	int actionphoneme = 0;
 	actionphoneme = pizza.detection_phoneme();
 	if (actionphoneme == 0) {
+		//bouger a droite 
+
 		qDebug() << "aucun phoneme detecte";
 	}
 	if (actionphoneme == 1) {
-		qDebug() << "aa detecte";
+		moveFocus(1);
+		qDebug() << "aa detecte"; //aa = bas
 	}
 	if (actionphoneme == 2) {
-		qDebug() << "ee detecte";
+		qDebug() << "ii detecte";
+		moveFocus(-1);//ii = top
 	}
 	if (actionphoneme == 4) {
-		qDebug() << "ii detecte";
+		qDebug() << "oo detecte";
+		if (Ecran2 == false) {
+			return;
+		}
+
 	}
 	if (actionphoneme == 8) {
-		qDebug() << "er detecte";
+		if (Ecran2 == false) {
+			return;
+		}
+		int idex1 = lay1->indexOf(qApp->focusWidget());
+		int idex2 = lay2->indexOf(qApp->focusWidget());
+		int idex3 = lay3->indexOf(qApp->focusWidget());
+		int idex4 = lay4->indexOf(qApp->focusWidget());
+		if (idex1 != -1) {
+			lay3->itemAtPosition(0, 0)->widget()->setFocus();
+		}
+		if (idex3 != -1) {
+			lay2->itemAtPosition(0, 0)->widget()->setFocus();
+		}
+		if (idex2 != -1) {
+			lay4->itemAtPosition(0, 0)->widget()->setFocus();
+		}
+		if (idex4 != -1) {
+			lay1->itemAtPosition(0, 0)->widget()->setFocus();
+		}//oo=droite
 	}
 }
 
@@ -437,7 +461,13 @@ void MainWindow::images_pizza() {
 		for (int n = 0; n < nmax; n++) {
 			delete plotImg[n];
 		}
-	} 
+	} else {
+		for (int n = 0; n < (nmax); n++) {
+				image[n] = new QImage(path_image[n]);
+		}
+	}
+	
+
 
 	if (choisistaille[0]) {
 		pixtaille = 200;
@@ -538,7 +568,7 @@ void MainWindow::Reset() {
 
 	if (!firsttime)
 		for (int n = 0; n < 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1; n++) {
-			//delete image[n];
+			delete image[n];
 			delete plotImg[n];
 		}
 	firsttime = true;
@@ -596,7 +626,7 @@ void MainWindow::Interface3() {
 
 	if (!firsttime)
 		for (int n = 0; n < 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1; n++) {
-			//delete image[n];
+			delete image[n];
 			delete plotImg[n];
 		}
 	firsttime = true;
@@ -668,7 +698,7 @@ void MainWindow::transfer1() {
 			plotImg[n]->hide();
 		}
 		for (int n = 0; n < 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1; n++) {
-			//delete image[n];
+			delete image[n];
 			delete plotImg[n];
 		}
 		firsttime = true;

@@ -63,43 +63,45 @@ int interface7::detection_phoneme() {
 	Ncan3 = 0;
 	for (int i = 0; i < 10; i++) {
 
-		fpga.sleep(5);
+		fpga.sleep(1);
 		fpga.lireRegistre(3, can0);
-		fpga.sleep(5);
+		fpga.sleep(1);
 		fpga.lireRegistre(4, can1);
-		fpga.sleep(5);
+		fpga.sleep(1);
 		fpga.lireRegistre(5, can2);
-		fpga.sleep(5);
+		fpga.sleep(1);
 		fpga.lireRegistre(6, can3);
-		fpga.sleep(5);
-		if (can0 > 150)
+		fpga.sleep(1);
+		if (can0 > 125)
 			Ncan0 += 1;
 		if (can1 > 150)
 			Ncan1 += 1;
 		if (can2 > 150)
 			Ncan2 += 1;
-		if (can3 > 150)
+		if (can3 > 100)
 			Ncan3 += 1;
 	}
-	/*
+	
+
 	if (Ncan0 >= aa[0] && Ncan1 >= aa[1] && Ncan2 >= aa[2] && Ncan3 >= aa[3]) {
 		//fpga.ecrireRegistre(8, 0x10);
 		return 1;//a
 	}
-	if (Ncan0 >= ee[0] && Ncan1 >= ee[1] && Ncan2 >= ee[2] && Ncan3 >= ee[3]) {
-		//fpga.ecrireRegistre(8, 0x01);
-		return 2;//e
+	if (Ncan0 >= ai[0] && Ncan1 >= ai[1] && Ncan2 >= ai[2] && Ncan3 >= ai[3]) {
+		//fpga.ecrireRegistre(7, 0x01);
+		return 8;//ai (ferme)
 	}
 	if (Ncan0 >= ii[0] && Ncan1 >= ii[1] && Ncan2 >= ii[2] && Ncan3 >= ii[3]) {
-		//fpga.ecrireRegistre(7, 0x10);
-		return 4;//i
+		//fpga.ecrireRegistre(8, 0x01);
+		return 2;//ii
 	}
-	if (Ncan0 >= er[0] && Ncan1 >= er[1] && Ncan2 >= er[2] && Ncan3 >= er[3]) {
-		//fpga.ecrireRegistre(7, 0x01);
-	    	return 8;//er (ferme)
-	}*/
-	return 0;
+	if (Ncan0 >= oo[0] && Ncan1 >= oo[1] && Ncan2 >= oo[2] && Ncan3 >= oo[3]) {
+		//fpga.ecrireRegistre(7, 0x10);
+		return 4;//oo
+	}
 
+
+	return 0;
 	//cout << "reg 1: "<< can0 << " reg 2: "<< can1 << " reg 3: " << can2 << " reg 4: " << can3 << endl;
 
 };

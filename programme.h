@@ -53,10 +53,10 @@ private:
 	//string grandeur[4] = { "petite","moyenne","grande","XL" };
 	//string condiments[10] = { "Tomates","Onions","Piments","Epinards","Champignons" ,"Jalapenos","Ananas","Olives","Ail", "Confirmer la selection" };
 	//string viandes[10] = { "Steak","Pepperoni","Salami","Jambon","Prosciutto","Bacon","Saucisse","Poulet","Anchois","Confirmer la selections" };
-	int aa[4] = { 6,0,0,0 };
-	int ee[4] = { 0,6,0,0 };
-	int ii[4] = { 0,0,6,0 };
-	int er[4] = { 0,0,0,6 };
+	int aa[4] = { 6,0,6,6 };
+	int ii[4] = { 6,0,0,0 };
+	int oo[4] = { 0,0,0,10 };
+	int ai[4] = { 6,6,0,6 };
 
 	/*bool choisis[TAILLE_CONDIMENTS] = { false,false, false, false, false, false, false, false, false, false };
 	bool choisisViande[TAILLE_CONDIMENTS] = { false,false, false, false, false, false, false, false, false, false };

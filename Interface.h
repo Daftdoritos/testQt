@@ -57,7 +57,6 @@ private:
 	float TPS;
 	float TVQ;
 	bool firsttime = true;
-	const int nMax = 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1;
 
 	const QString QTgrandeur[4] = { "Petite","Moyenne","Grande","XL" };
 	const QString QTcondiments[9] = { "Tomates","Onions","Piments","Epinards","Champignons" ,"Jalapenos","Ananas","Olives","Ail" };
@@ -78,7 +77,6 @@ private:
 	
 
 	QRadioButton *BOtailles[TAILLE_SIZE];
-	
 	QCheckBox *BOviandes[TAILLE_VIANDES-1];
 	QCheckBox *BOcondiments[TAILLE_CONDIMENTS-1];
 	QCheckBox *BOfromages[TAILLE_FROMAGE-1];
