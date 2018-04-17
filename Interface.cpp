@@ -65,9 +65,9 @@ void MainWindow::Interface1()
 
 	// Construction des deux boutons Start Quit
 	m_bouton = new QPushButton("Start", this);
-	m_bouton->setFont(QFont("Comic Sans MS", 14));
+	m_bouton->setFont(QFont("Helvetica", 14));
 	quit = new QPushButton("Quit", this);
-	quit->setFont(QFont("Comic Sans MS", 14));
+	quit->setFont(QFont("Helvetica", 14));
 	m_bouton->setCursor(Qt::PointingHandCursor);
 	quit->setCursor(Qt::PointingHandCursor);
 	m_bouton->show();
@@ -106,7 +106,7 @@ void MainWindow::Interface2() {
 	fpgaok = new QLabel("ok",this);
 	phoneme = new QLabel("aucun phoneme detecte",this);
 	phoneme->move(100, 350);
-	phoneme->setFont(QFont("Comic Sans MS", 14));
+	phoneme->setFont(QFont("Helvetica", 14));
 	phoneme->show();
 
 
@@ -118,19 +118,19 @@ void MainWindow::Interface2() {
 
 
 	reset = new QPushButton("Reset", this);
-	reset->setFont(QFont("Comic Sans MS", 14));
+	reset->setFont(QFont("Helvetica", 14));
 	reset->setCursor(Qt::PointingHandCursor);
 	reset->move(810, 380);
 	reset->show();
 
 	confirmer = new QPushButton("Confirmer la commande", this);
-	confirmer->setFont(QFont("Comic Sans MS", 14));
+	confirmer->setFont(QFont("Helvetica", 14));
 	confirmer->setCursor(Qt::PointingHandCursor);
 	confirmer->move(500, 380);
 	confirmer->show();
 
 	prixpizza = new QLabel("Facture:  00.00$", this);
-	prixpizza->setFont(QFont("Comic Sans MS", 14));
+	prixpizza->setFont(QFont("Helvetica", 14));
 	prixpizza->move(600, 0);
 	prixpizza->show();
 
@@ -219,7 +219,7 @@ void MainWindow::Interface2() {
 }
 
 void MainWindow::phonemechange(int h) {
-	qDebug() << h;
+	//qDebug() << h;
 	if (Ecran2 == true) {
 		if (h == 0) {
 			phoneme->setText("aucun phoneme detecte");
