@@ -81,7 +81,7 @@ void MainWindow::Interface1()
 }
 void MainWindow::transfer() {
 	delete m_bouton;
-	
+	Ecran2 = true;
 	Interface2();
 
 }
@@ -128,8 +128,6 @@ void MainWindow::Interface2() {
 	confirmer->setCursor(Qt::PointingHandCursor);
 	confirmer->move(500, 380);
 	confirmer->show();
-
-	Ecran2 = true;
 
 	prixpizza = new QLabel("Facture:  00.00$", this);
 	prixpizza->setFont(QFont("Comic Sans MS", 14));
@@ -673,6 +671,8 @@ void MainWindow::Reset() {
 		BOfromages[i]->setChecked(false);
 		choisisFromage[i] = false;
 	}
+
+	lay1->itemAtPosition(0, 0)->widget()->setFocus();
 
 	prixpizza->setText("Facture:  "+QString::number(prixtotal, 'f', 2) + "$");
 
