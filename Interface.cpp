@@ -81,7 +81,7 @@ void MainWindow::Interface1()
 }
 void MainWindow::transfer() {
 	delete m_bouton;
-	
+	Ecran2 = true;
 	Interface2();
 
 }
@@ -128,8 +128,6 @@ void MainWindow::Interface2() {
 	confirmer->setCursor(Qt::PointingHandCursor);
 	confirmer->move(500, 380);
 	confirmer->show();
-
-	Ecran2 = true;
 
 	prixpizza = new QLabel("Facture:  00.00$", this);
 	prixpizza->setFont(QFont("Comic Sans MS", 14));
@@ -219,27 +217,30 @@ void MainWindow::Interface2() {
 	QObject::connect(this, SIGNAL(sigRight()), this, SLOT(on_right()));
 	QObject::connect(this, SIGNAL(checkphoneme(int)), this, SLOT(phonemechange(int)));
 }
+
 void MainWindow::phonemechange(int h) {
 	qDebug() << h;
-	if (h == 0) {
-		phoneme->setText("aucun phoneme detecte");
-		phoneme->show();
-	}
-	if (h == 1) {
-		phoneme->setText("aa detecte");
-		phoneme->show();
-	}
-	 if (h == 2) {
-		phoneme->setText("ii detecte");
-		phoneme->show();
-	}
-	 if (h == 3) {
-		phoneme->setText("oo detecte");
-		phoneme->show();
-	}
-	 if (h == 4) {
-		phoneme->setText("ai detecte");
-		phoneme->show();
+	if (Ecran2 == true) {
+		if (h == 0) {
+			phoneme->setText("aucun phoneme detecte");
+			phoneme->show();
+		}
+		if (h == 1) {
+			phoneme->setText("aa detecte");
+			phoneme->show();
+		}
+		if (h == 2) {
+			phoneme->setText("ii detecte");
+			phoneme->show();
+		}
+		if (h == 3) {
+			phoneme->setText("oo detecte");
+			phoneme->show();
+		}
+		if (h == 4) {
+			phoneme->setText("ai detecte");
+			phoneme->show();
+		}
 	}
 	
 }
@@ -260,7 +261,7 @@ void MainWindow::detectionphoneme()
 			int actionphoneme = 0;
 			actionphoneme = pizza.detection_phoneme();
 			if (actionphoneme == 0) {
-				qDebug() << "aucun phoneme detecte";
+				//qDebug() << "aucun phoneme detecte";
 				emit checkphoneme(0);
 			}
 			if (actionphoneme == 1) {
@@ -288,7 +289,7 @@ void MainWindow::detectionphoneme()
 			}
 
 			auto start = std::chrono::high_resolution_clock::now();
-			std::this_thread::sleep_for(0.25s);
+			std::this_thread::sleep_for(0.5s);
 			auto end = std::chrono::high_resolution_clock::now();
 		}
 	}
@@ -671,6 +672,8 @@ void MainWindow::Reset() {
 		choisisFromage[i] = false;
 	}
 
+	lay1->itemAtPosition(0, 0)->widget()->setFocus();
+
 	prixpizza->setText("Facture:  "+QString::number(prixtotal, 'f', 2) + "$");
 
 }
@@ -771,6 +774,7 @@ void MainWindow::Interface3() {
 }
 
 void MainWindow::transfer1() {
+	Ecran2 = false;
 
 	if (!firsttime) {
 		for (int n = 0; n < 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1; n++) {
