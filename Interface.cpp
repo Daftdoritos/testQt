@@ -14,7 +14,6 @@
 using namespace std;
 bool Ecran2 = false;
 
-#include <thread>
 
 MainWindow::MainWindow() {
 
@@ -22,12 +21,16 @@ MainWindow::MainWindow() {
 
 	batir_path();
 
+	for (int n = 0; n < (nmax); n++) {
+		image[n] = new QImage(path_image[n]);
+	}
+
 	shortcut = new QShortcut(QKeySequence(Qt::Key_Up), this,
 		SLOT(on_up()));
 	shortcut = new QShortcut(QKeySequence(Qt::Key_Down), this,
 		SLOT(on_down()));
-	shortcut = new QShortcut(QKeySequence(Qt::Key_Tab), this,
-		SLOT(on_tab()));
+	/*shortcut = new QShortcut(QKeySequence(Qt::Key_Tab), this,
+		SLOT(on_tab()));*/
 	shortcut = new QShortcut(QKeySequence(Qt::Key_Return), this,
 		SLOT(on_enter()));
 	shortcut = new QShortcut(QKeySequence(Qt::Key_Left), this,
@@ -35,8 +38,14 @@ MainWindow::MainWindow() {
 	shortcut = new QShortcut(QKeySequence(Qt::Key_Right), this,
 		SLOT(on_right()));
 
+	t1 = new std::thread(&MainWindow::detectionphoneme, this);
+
 	Interface1();
 
+}
+
+MainWindow::~MainWindow() {
+	t1->join();
 }
 
 void MainWindow::Interface1()
@@ -80,10 +89,11 @@ void MainWindow::transfer() {
 void MainWindow::Interface2() {
 	
 	prixtotal = 0;
+
 	rules = new QTextEdit("Regle des phonemes:", this);
 	rules->append("");
-	rules->move(100, 300);
-	//rules->setFixedSize();
+	rules->move(100, 250);
+	rules->setFixedSize(300, 90);
 	rules->append("'aa'=\t descendre");
 	rules->append("'ii'=\t monter");
 	rules->append("'oo'=\t cocher une case");
@@ -91,8 +101,16 @@ void MainWindow::Interface2() {
 	rules->setReadOnly(true);
 	rules->show();
 
+
+
 	fpgaok = new QLabel("ok",this);
-	phoneme = new QLabel("phoneme",this);
+	phoneme = new QLabel("aucun phoneme detecte",this);
+	phoneme->move(100, 350);
+	phoneme->setFont(QFont("Comic Sans MS", 14));
+	phoneme->show();
+
+
+
 	if (fpga1.estOk()) {
 		fpgaok->move(0, 300);
 		fpgaok->show();
@@ -195,6 +213,38 @@ void MainWindow::Interface2() {
 	
 	QObject::connect(confirmer, SIGNAL(clicked()), this, SLOT(transfer1()));
 	QObject::connect(reset, SIGNAL(clicked()), this, SLOT(Reset()));
+
+	QObject::connect(this, SIGNAL(sigFocus(int)), this, SLOT(moveFocus(int)));
+	QObject::connect(this, SIGNAL(sigCheck()), this, SLOT(changeCheck()));
+	QObject::connect(this, SIGNAL(sigRight()), this, SLOT(on_right()));
+	QObject::connect(this, SIGNAL(checkphoneme(int)), this, SLOT(phonemechange(int)));
+}
+
+void MainWindow::phonemechange(int h) {
+	qDebug() << h;
+	if (Ecran2 == true) {
+		if (h == 0) {
+			phoneme->setText("aucun phoneme detecte");
+			phoneme->show();
+		}
+		if (h == 1) {
+			phoneme->setText("aa detecte");
+			phoneme->show();
+		}
+		if (h == 2) {
+			phoneme->setText("ii detecte");
+			phoneme->show();
+		}
+		if (h == 3) {
+			phoneme->setText("oo detecte");
+			phoneme->show();
+		}
+		if (h == 4) {
+			phoneme->setText("ai detecte");
+			phoneme->show();
+		}
+	}
+	
 }
 
 void MainWindow::on_up()
@@ -206,57 +256,45 @@ void MainWindow::on_down()
 {
 	moveFocus(1);
 }
-void MainWindow::on_tab()
+void MainWindow::detectionphoneme()
 {
-	std::chrono::seconds interval(10);
-	int actionphoneme = 0;
-	actionphoneme = pizza.detection_phoneme();
-	if (actionphoneme == 0) {
+	while (1) {
+		if (Ecran2 == true) {
+			int actionphoneme = 0;
+			actionphoneme = pizza.detection_phoneme();
+			if (actionphoneme == 0) {
+				qDebug() << "aucun phoneme detecte";
+				emit checkphoneme(0);
+			}
+			if (actionphoneme == 1) {
+				emit sigFocus(1);
+				qDebug() << "aa detecte"; //aa = bas
+				emit checkphoneme(1);
+			}
+			if (actionphoneme == 2) {
+				qDebug() << "ii detecte";
+				emit sigFocus(-1);//ii = top
+				emit checkphoneme(2);
+				
+			}
+			if (actionphoneme == 4) {
+				qDebug() << "oo detecte";
+				//QKeyEvent *event = new QKeyEvent(QEvent::KeyPress, Qt::Key_Enter, Qt::NoModifier);
+				//QCoreApplication::postEvent(this, event);
+				emit sigCheck();
+				emit checkphoneme(3);
+			}
 
-		qDebug() << "aucun phoneme detecte";
-	}
-	if (actionphoneme == 1) {
-		moveFocus(1);
-		qDebug() << "aa detecte"; //aa = bas
-	}
-	if (actionphoneme == 2) {
-		qDebug() << "ii detecte";
-		moveFocus(-1);//ii = top
-	}
-	if (actionphoneme == 4) {
-		qDebug() << "oo detecte";
-		if (Ecran2 == false) {
-			return;
+			if (actionphoneme == 8) {
+				emit sigRight();
+				emit checkphoneme(4);
+			}
+
+			auto start = std::chrono::high_resolution_clock::now();
+			std::this_thread::sleep_for(0.25s);
+			auto end = std::chrono::high_resolution_clock::now();
 		}
-		//QKeyEvent *event = new QKeyEvent(QEvent::KeyPress, Qt::Key_Enter, Qt::NoModifier);
-		//QCoreApplication::postEvent(this, event);
-		changeCheck();
 	}
-	
-	
-	if (actionphoneme == 8) {
-		qDebug() << "ai detecte";
-		if (Ecran2 == false) {
-			return;
-		}
-		int idex1 = lay1->indexOf(qApp->focusWidget());
-		int idex2 = lay2->indexOf(qApp->focusWidget());
-		int idex3 = lay3->indexOf(qApp->focusWidget());
-		int idex4 = lay4->indexOf(qApp->focusWidget());
-		if (idex1 != -1) {
-			lay3->itemAtPosition(0, 0)->widget()->setFocus();
-		}
-		if (idex3 != -1) {
-			lay2->itemAtPosition(0, 0)->widget()->setFocus();
-		}
-		if (idex2 != -1) {
-			lay4->itemAtPosition(0, 0)->widget()->setFocus();
-		}
-		if (idex4 != -1) {
-			lay1->itemAtPosition(0, 0)->widget()->setFocus();
-		}//ai=froite
-	}
-	
 }
 
 void MainWindow::on_enter()
@@ -354,8 +392,6 @@ void MainWindow::changeCheck() {
 		BOfromages[idex4]->click();
 	}
 }
-
-
 
 
 void MainWindow::moveFocus(int dy)
@@ -498,18 +534,14 @@ void MainWindow::check() {
 }
 
 void MainWindow::images_pizza() {
-	int pixtaille = 0, nmax;
+	int pixtaille = 0;
 	int cf = 0, cv = 0, cc = 0;
 	bool choix = true;
-	nmax = 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1;
-
+	int dx = 0, dy = 0;
+	
 	if (!firsttime) {
 		for (int n = 0; n < nmax; n++) {
 			delete plotImg[n];
-		}
-	} else {
-		for (int n = 0; n < (nmax); n++) {
-				image[n] = new QImage(path_image[n]);
 		}
 	}
 	
@@ -517,18 +549,20 @@ void MainWindow::images_pizza() {
 
 	if (choisistaille[0]) {
 		pixtaille = 200;
+		dx = dy = 50;
 	}
 	else if (choisistaille[1]) {
 		pixtaille = 240;
+		dx = dy = 30;
 	}
 	else if (choisistaille[2]) {
 		pixtaille = 260;
+		dx = dy = 20;
 	}
 	else if (choisistaille[3]) {
 		pixtaille = 300;
+		dx = dy = 0;
 	}
-
-	
 
 	for (int n = 0; n < (nmax); n++) {
 		if (n == 0) {
@@ -571,7 +605,7 @@ void MainWindow::images_pizza() {
 		plotImg[n]->setScaledContents(true);
 		plotImg[n]->setPixmap(QPixmap::fromImage(image2));
 		plotImg[n]->show();
-		plotImg[n]->move(550, 50);
+		plotImg[n]->move(550 + dx, 50 + dy);
 	}
 
 	firsttime = false;
@@ -614,7 +648,7 @@ void MainWindow::Reset() {
 
 	if (!firsttime)
 		for (int n = 0; n < 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1; n++) {
-			delete image[n];
+			//delete image[n];
 			delete plotImg[n];
 		}
 	firsttime = true;
@@ -645,11 +679,12 @@ void MainWindow::Reset() {
 }
 
 void MainWindow::Interface3() {
+	delete phoneme;
 	delete rules;
 	delete prixpizza;
 	delete confirmer;
 	delete reset;
-	Ecran2 = false;
+
 	for (int i = 0; i < TAILLE_SIZE; i++) {
 		delete BOtailles[i];
 	}
@@ -673,7 +708,7 @@ void MainWindow::Interface3() {
 
 	if (!firsttime)
 		for (int n = 0; n < 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1; n++) {
-			delete image[n];
+			//delete image[n];
 			delete plotImg[n];
 		}
 	firsttime = true;
@@ -739,13 +774,14 @@ void MainWindow::Interface3() {
 }
 
 void MainWindow::transfer1() {
+	Ecran2 = false;
 
 	if (!firsttime) {
 		for (int n = 0; n < 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1; n++) {
 			plotImg[n]->hide();
 		}
 		for (int n = 0; n < 1 + TAILLE_CONDIMENTS - 1 + TAILLE_VIANDES - 1 + TAILLE_FROMAGE - 1; n++) {
-			delete image[n];
+			//delete image[n];
 			delete plotImg[n];
 		}
 		firsttime = true;
