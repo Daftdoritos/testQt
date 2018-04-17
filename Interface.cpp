@@ -90,8 +90,27 @@ void MainWindow::Interface2() {
 	
 	prixtotal = 0;
 
+	rules = new QTextEdit("Regle des phonemes:", this);
+	rules->append("");
+	rules->move(100, 250);
+	rules->setFixedSize(300, 90);
+	rules->append("'aa'=\t descendre");
+	rules->append("'ii'=\t monter");
+	rules->append("'oo'=\t cocher une case");
+	rules->append("'ai'=\t aller vers la droite ");
+	rules->setReadOnly(true);
+	rules->show();
+
+
+
 	fpgaok = new QLabel("ok",this);
-	phoneme = new QLabel("phoneme",this);
+	phoneme = new QLabel("aucun phoneme detecte",this);
+	phoneme->move(100, 350);
+	phoneme->setFont(QFont("Comic Sans MS", 14));
+	phoneme->show();
+
+
+
 	if (fpga1.estOk()) {
 		fpgaok->move(0, 300);
 		fpgaok->show();
@@ -198,6 +217,31 @@ void MainWindow::Interface2() {
 	QObject::connect(this, SIGNAL(sigFocus(int)), this, SLOT(moveFocus(int)));
 	QObject::connect(this, SIGNAL(sigCheck()), this, SLOT(changeCheck()));
 	QObject::connect(this, SIGNAL(sigRight()), this, SLOT(on_right()));
+	QObject::connect(this, SIGNAL(checkphoneme(int)), this, SLOT(phonemechange(int)));
+}
+void MainWindow::phonemechange(int h) {
+	qDebug() << h;
+	if (h == 0) {
+		phoneme->setText("aucun phoneme detecte");
+		phoneme->show();
+	}
+	if (h == 1) {
+		phoneme->setText("aa detecte");
+		phoneme->show();
+	}
+	 if (h == 2) {
+		phoneme->setText("ii detecte");
+		phoneme->show();
+	}
+	 if (h == 3) {
+		phoneme->setText("oo detecte");
+		phoneme->show();
+	}
+	 if (h == 4) {
+		phoneme->setText("ai detecte");
+		phoneme->show();
+	}
+	
 }
 
 void MainWindow::on_up()
@@ -217,24 +261,30 @@ void MainWindow::detectionphoneme()
 			actionphoneme = pizza.detection_phoneme();
 			if (actionphoneme == 0) {
 				qDebug() << "aucun phoneme detecte";
+				emit checkphoneme(0);
 			}
 			if (actionphoneme == 1) {
 				emit sigFocus(1);
 				qDebug() << "aa detecte"; //aa = bas
+				emit checkphoneme(1);
 			}
 			if (actionphoneme == 2) {
 				qDebug() << "ii detecte";
 				emit sigFocus(-1);//ii = top
+				emit checkphoneme(2);
+				
 			}
 			if (actionphoneme == 4) {
 				qDebug() << "oo detecte";
 				//QKeyEvent *event = new QKeyEvent(QEvent::KeyPress, Qt::Key_Enter, Qt::NoModifier);
 				//QCoreApplication::postEvent(this, event);
 				emit sigCheck();
+				emit checkphoneme(3);
 			}
 
 			if (actionphoneme == 8) {
 				emit sigRight();
+				emit checkphoneme(4);
 			}
 
 			auto start = std::chrono::high_resolution_clock::now();
@@ -626,6 +676,8 @@ void MainWindow::Reset() {
 }
 
 void MainWindow::Interface3() {
+	delete phoneme;
+	delete rules;
 	delete prixpizza;
 	delete confirmer;
 	delete reset;

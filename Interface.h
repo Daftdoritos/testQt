@@ -47,15 +47,19 @@ public slots:
 	void changeCheck();
 	void moveFocus(int dy);
 	void Reset();
+	void phonemechange(int l);
 
 signals:
 	void sigFocus(int a);
 	void sigCheck();
 	void sigRight();
+	void checkphoneme(int d);
 	
 private:
 	std::thread * t1;
 	QTextEdit * facture;
+	QTextEdit* rules;
+
 
 	QLabel* phoneme;
 	QLabel*	fpgaok;

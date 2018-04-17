@@ -63,6 +63,6 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="C:\Users\Carlos Torres\source\repos\testQt\LabApp7_resource.rc" />
+    <ResourceCompile Include="C:\Users\Gabriel\Documents\LaboratoireAPP7\LabApp7_resource.rc" />
   </ItemGroup>
 </Project>

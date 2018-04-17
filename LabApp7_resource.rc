@@ -1,6 +1,6 @@
 #include <windows.h>
 
-IDI_ICON1	ICON	DISCARDABLE	"C:\\Users\\Carlos Torres\\source\\repos\\testQt\\assets\\pimpmypizzaico.ico"
+IDI_ICON1	ICON	DISCARDABLE	"C:\\Users\\Gabriel\\Documents\\LaboratoireAPP7\\assets\\pimpmypizzaico.ico"
 
 VS_VERSION_INFO VERSIONINFO
 	FILEVERSION 0,0,0,0
