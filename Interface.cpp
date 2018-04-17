@@ -261,7 +261,7 @@ void MainWindow::detectionphoneme()
 			int actionphoneme = 0;
 			actionphoneme = pizza.detection_phoneme();
 			if (actionphoneme == 0) {
-				qDebug() << "aucun phoneme detecte";
+				//qDebug() << "aucun phoneme detecte";
 				emit checkphoneme(0);
 			}
 			if (actionphoneme == 1) {
@@ -289,7 +289,7 @@ void MainWindow::detectionphoneme()
 			}
 
 			auto start = std::chrono::high_resolution_clock::now();
-			std::this_thread::sleep_for(0.25s);
+			std::this_thread::sleep_for(0.5s);
 			auto end = std::chrono::high_resolution_clock::now();
 		}
 	}
